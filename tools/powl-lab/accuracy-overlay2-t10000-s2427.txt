@@ -1,0 +1,6 @@
+Using seed 2427
+Using xmin=0x0p+0l xmax=-0xf.fffffffffffffffp+16380l ymin=0x0p+0l ymax=-0xf.fffffffffffffffp+16380l
+Using 1 thread(s)
+pow 0 -1 0x7.5573852b2bddfbbp+16312l,-0x6.c2fe326a74000008p-32l [5.32e+02] 531.181 531.1800023403967
+libm gives 0xf.ffed54f5b32c038p-4l
+mpfr gives 0xf.ffed54f5b32c24bp-4l

@@ -1,0 +1,44 @@
+BIND system /lib/libm.so.5
+BIND PR /usr/obj/root/src/freebsd-src-e80b8a3e2b8117932ea094695840aed4d32b110a/amd64.amd64/lib/msun/libm.so.5
+BIND overlay /root/libpowl_stage3.so
+REF pair=0 x=0x1.a1cf08bfc0538aaap-13511 y=-0x1.cf981d26047d608p-13 ld80=0x1.fb419d7e53136b32p+2 sig=fda0cebf2989b599 mpfr256_512_rounding_agree=1
+REF512 pair=0 exact_approx=0x7.ed0675f94c4dacc9c99ec159d538c8e58e10c238f71fbae6d136428082b822335f0b8f088cb68fa3e34e494044e8e57172deeffff760b0244d08c90b4723bfep+0
+REF pair=1 x=0x1.d55ce14acaf77eecp+16314 y=-0x1.b0bf8c9a9d000002p-30 ld80=0x1.fffdaa9eb6658496p-1 sig=fffed54f5b32c24b mpfr256_512_rounding_agree=1
+REF512 pair=1 exact_approx=0xf.ffed54f5b32c24b2e14a22534e74398cbb7b858646a14c1e2c94c828adab8b681f6d0993552eaa5f9ea80b36ce058cd45b6ee3a3a3c11907209f5ff32af17bcp-4
+SHOT=1 rep=0 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=2 rep=0 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=3 rep=0 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=4 rep=0 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=5 rep=0 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=6 rep=0 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=7 rep=1 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=8 rep=1 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=9 rep=1 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=10 rep=1 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=11 rep=1 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=12 rep=1 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=13 rep=2 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=14 rep=2 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=15 rep=2 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=16 rep=2 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=17 rep=2 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=18 rep=2 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=19 rep=3 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=20 rep=3 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=21 rep=3 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=22 rep=3 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=23 rep=3 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=24 rep=3 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=25 rep=4 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=26 rep=4 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=27 rep=4 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=28 rep=4 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=29 rep=4 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=30 rep=4 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=31 rep=5 pair=0 lib=system r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=32 rep=5 pair=0 lib=PR r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=33 rep=5 pair=0 lib=overlay r=0x1.fb419d7e53136758p+2 flags=0x20 raw=0x20 sig=fda0cebf2989b3ac refsig=fda0cebf2989b599 xor=0000000000000635 common_leading_bits=53 differing_bits=6 signed_error_ulp=-493.22344733291052101
+SHOT=34 rep=5 pair=1 lib=system r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=35 rep=5 pair=1 lib=PR r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+SHOT=36 rep=5 pair=1 lib=overlay r=0x1.fffdaa9eb665807p-1 flags=0x20 raw=0x20 sig=fffed54f5b32c038 refsig=fffed54f5b32c24b xor=0000000000000273 common_leading_bits=54 differing_bits=6 signed_error_ulp=-531.18000234039655277
+DONE shots=36 repetitions_stable=1

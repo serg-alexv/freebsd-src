@@ -1,0 +1,44 @@
+--- a/lib/msun/ld80/e_powl.c
++++ b/lib/msun/ld80/e_powl.c
+@@ -480,10 +480,18 @@
+ 
+ /* Test the power of 2 for overflow */
+ if( w > MEXP )
+-	return (huge * huge);		/* overflow */
++	{
++	volatile long double v = huge;
++	long double s = (nflg && yoddint) ? -huge : huge;
++	return v * s;
++	}
+ 
+ if( w < MNEXP )
+-	return (twom10000 * twom10000);	/* underflow */
++	{
++	volatile long double v = twom10000;
++	long double s = (nflg && yoddint) ? -twom10000 : twom10000;
++	return v * s;
++	}
+ 
+ e = w;
+ Hb = H - Ha;
+@@ -640,10 +648,18 @@
+ 	}
+ 
+ if( s > MAXLOGL )
+-	return (huge * huge);		/* overflow */
++	{
++	volatile long double v = huge;
++	long double signed_scale = (asign && (n & 1)) ? -huge : huge;
++	return v * signed_scale;
++	}
+ 
+ if( s < MINLOGL )
+-	return (twom10000 * twom10000);	/* underflow */
++	{
++	volatile long double v = twom10000;
++	long double signed_scale = (asign && (n & 1)) ? -twom10000 : twom10000;
++	return v * signed_scale;
++	}
+ /* Handle tiny denormal answer, but with less accuracy
+  * since roundoff error in 1.0/x will be amplified.
+  * The precise demarcation should be the gradual underflow threshold.

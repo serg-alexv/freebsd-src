@@ -1,0 +1,1186 @@
+
+/usr/obj/root/src/freebsd-src-e80b8a3e2b8117932ea094695840aed4d32b110a/amd64.amd64/lib/msun/libm.so.5:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000032a40 <powl>:
+   32a40: 55                           	pushq	%rbp
+   32a41: 48 89 e5                     	movq	%rsp, %rbp
+   32a44: 41 57                        	pushq	%r15
+   32a46: 41 56                        	pushq	%r14
+   32a48: 41 55                        	pushq	%r13
+   32a4a: 41 54                        	pushq	%r12
+   32a4c: 53                           	pushq	%rbx
+   32a4d: 48 81 ec 08 01 00 00         	subq	$0x108, %rsp            # imm = 0x108
+   32a54: db 6d 20                     	fldt	0x20(%rbp)
+   32a57: db 6d 10                     	fldt	0x10(%rbp)
+   32a5a: 9b                           	wait
+   32a5b: 4c 8b 25 e6 17 01 00         	movq	0x117e6(%rip), %r12     # 0x44248 <memset+0x44248>
+   32a62: 49 8b 04 24                  	movq	(%r12), %rax
+   32a66: 48 89 45 d0                  	movq	%rax, -0x30(%rbp)
+   32a6a: d9 ee                        	fldz
+   32a6c: df ea                        	fucompi	%st(2), %st
+   32a6e: 9b                           	wait
+   32a6f: 0f 9b c0                     	setnp	%al
+   32a72: 0f 94 c1                     	sete	%cl
+   32a75: d9 e8                        	fld1
+   32a77: 84 c1                        	testb	%al, %cl
+   32a79: d9 ee                        	fldz
+   32a7b: 75 1d                        	jne	0x32a9a <powl+0x5a>
+   32a7d: dd d9                        	fstp	%st(1)
+   32a7f: dd d8                        	fstp	%st(0)
+   32a81: d9 e8                        	fld1
+   32a83: d9 c9                        	fxch	%st(1)
+   32a85: db e9                        	fucomi	%st(1), %st
+   32a87: 9b                           	wait
+   32a88: 0f 9b c0                     	setnp	%al
+   32a8b: 0f 94 c1                     	sete	%cl
+   32a8e: 84 c1                        	testb	%al, %cl
+   32a90: d9 ee                        	fldz
+   32a92: d9 c9                        	fxch	%st(1)
+   32a94: d9 ca                        	fxch	%st(2)
+   32a96: d9 c9                        	fxch	%st(1)
+   32a98: 74 27                        	je	0x32ac1 <powl+0x81>
+   32a9a: dd db                        	fstp	%st(3)
+   32a9c: dd d9                        	fstp	%st(1)
+   32a9e: dd d9                        	fstp	%st(1)
+   32aa0: 9b                           	wait
+   32aa1: 49 8b 04 24                  	movq	(%r12), %rax
+   32aa5: 48 3b 45 d0                  	cmpq	-0x30(%rbp), %rax
+   32aa9: 0f 85 8a 0a 00 00            	jne	0x33539 <powl+0xaf9>
+   32aaf: 48 81 c4 08 01 00 00         	addq	$0x108, %rsp            # imm = 0x108
+   32ab6: 5b                           	popq	%rbx
+   32ab7: 41 5c                        	popq	%r12
+   32ab9: 41 5d                        	popq	%r13
+   32abb: 41 5e                        	popq	%r14
+   32abd: 41 5f                        	popq	%r15
+   32abf: 5d                           	popq	%rbp
+   32ac0: c3                           	retq
+   32ac1: dd d9                        	fstp	%st(1)
+   32ac3: dd d8                        	fstp	%st(0)
+   32ac5: 9b                           	wait
+   32ac6: db e8                        	fucomi	%st(0), %st
+   32ac8: 9b                           	wait
+   32ac9: 0f 9b c0                     	setnp	%al
+   32acc: 0f 94 c1                     	sete	%cl
+   32acf: 84 c1                        	testb	%al, %cl
+   32ad1: 75 14                        	jne	0x32ae7 <powl+0xa7>
+   32ad3: d9 ee                        	fldz
+   32ad5: de c1                        	faddp	%st, %st(1)
+   32ad7: 9b                           	wait
+   32ad8: c7 45 84 00 00 00 00         	movl	$0x0, -0x7c(%rbp)
+   32adf: d9 c9                        	fxch	%st(1)
+   32ae1: da 45 84                     	fiaddl	-0x7c(%rbp)
+   32ae4: 9b                           	wait
+   32ae5: eb 1f                        	jmp	0x32b06 <powl+0xc6>
+   32ae7: d9 c9                        	fxch	%st(1)
+   32ae9: db e8                        	fucomi	%st(0), %st
+   32aeb: 9b                           	wait
+   32aec: 0f 9b c0                     	setnp	%al
+   32aef: 0f 94 c1                     	sete	%cl
+   32af2: 84 c1                        	testb	%al, %cl
+   32af4: 75 15                        	jne	0x32b0b <powl+0xcb>
+   32af6: d9 ee                        	fldz
+   32af8: de c2                        	faddp	%st, %st(2)
+   32afa: 9b                           	wait
+   32afb: c7 45 80 00 00 00 00         	movl	$0x0, -0x80(%rbp)
+   32b02: da 45 80                     	fiaddl	-0x80(%rbp)
+   32b05: 9b                           	wait
+   32b06: de c1                        	faddp	%st, %st(1)
+   32b08: 9b                           	wait
+   32b09: eb 96                        	jmp	0x32aa1 <powl+0x61>
+   32b0b: d9 e8                        	fld1
+   32b0d: d9 c9                        	fxch	%st(1)
+   32b0f: db e9                        	fucomi	%st(1), %st
+   32b11: dd d9                        	fstp	%st(1)
+   32b13: 9b                           	wait
+   32b14: 0f 9b c0                     	setnp	%al
+   32b17: 0f 94 c1                     	sete	%cl
+   32b1a: 84 c1                        	testb	%al, %cl
+   32b1c: 74 16                        	je	0x32b34 <powl+0xf4>
+   32b1e: dd d8                        	fstp	%st(0)
+   32b20: 9b                           	wait
+   32b21: d9 ee                        	fldz
+   32b23: d9 ee                        	fldz
+   32b25: d9 ee                        	fldz
+   32b27: d9 ca                        	fxch	%st(2)
+   32b29: d9 cb                        	fxch	%st(3)
+   32b2b: d9 c9                        	fxch	%st(1)
+   32b2d: d9 ca                        	fxch	%st(2)
+   32b2f: e9 66 ff ff ff               	jmp	0x32a9a <powl+0x5a>
+   32b34: d9 c0                        	fld	%st(0)
+   32b36: db 3c 24                     	fstpt	(%rsp)
+   32b39: db 7d a4                     	fstpt	-0x5c(%rbp)
+   32b3c: db 7d b0                     	fstpt	-0x50(%rbp)
+   32b3f: 9b                           	wait
+   32b40: e8 ab 01 01 00               	callq	0x42cf0 <__isfinitel@plt>
+   32b45: db 6d b0                     	fldt	-0x50(%rbp)
+   32b48: db 6d a4                     	fldt	-0x5c(%rbp)
+   32b4b: 9b                           	wait
+   32b4c: 85 c0                        	testl	%eax, %eax
+   32b4e: d9 ee                        	fldz
+   32b50: d9 ee                        	fldz
+   32b52: d9 cb                        	fxch	%st(3)
+   32b54: 75 23                        	jne	0x32b79 <powl+0x139>
+   32b56: dd d9                        	fstp	%st(1)
+   32b58: dd da                        	fstp	%st(2)
+   32b5a: d9 e8                        	fld1
+   32b5c: d9 c0                        	fld	%st(0)
+   32b5e: d9 e0                        	fchs
+   32b60: d9 cb                        	fxch	%st(3)
+   32b62: db eb                        	fucomi	%st(3), %st
+   32b64: dd db                        	fstp	%st(3)
+   32b66: 9b                           	wait
+   32b67: 0f 9b c0                     	setnp	%al
+   32b6a: 0f 94 c1                     	sete	%cl
+   32b6d: 84 c1                        	testb	%al, %cl
+   32b6f: d9 ee                        	fldz
+   32b71: d9 cb                        	fxch	%st(3)
+   32b73: 0f 85 21 ff ff ff            	jne	0x32a9a <powl+0x5a>
+   32b79: dd d9                        	fstp	%st(1)
+   32b7b: dd da                        	fstp	%st(2)
+   32b7d: db 2d 0d 3b fd ff            	fldt	-0x2c4f3(%rip)          # 0x6690 <memset+0x6690>
+   32b83: d9 c9                        	fxch	%st(1)
+   32b85: db f1                        	fcomi	%st(1), %st
+   32b87: dd d9                        	fstp	%st(1)
+   32b89: d9 ee                        	fldz
+   32b8b: d9 ee                        	fldz
+   32b8d: d9 cb                        	fxch	%st(3)
+   32b8f: 0f 82 9e 00 00 00            	jb	0x32c33 <powl+0x1f3>
+   32b95: dd d9                        	fstp	%st(1)
+   32b97: dd da                        	fstp	%st(2)
+   32b99: d9 e8                        	fld1
+   32b9b: d9 ca                        	fxch	%st(2)
+   32b9d: db f2                        	fcomi	%st(2), %st
+   32b9f: dd da                        	fstp	%st(2)
+   32ba1: 9b                           	wait
+   32ba2: 76 21                        	jbe	0x32bc5 <powl+0x185>
+   32ba4: dd d8                        	fstp	%st(0)
+   32ba6: dd d8                        	fstp	%st(0)
+   32ba8: 9b                           	wait
+   32ba9: f3 0f 10 05 2f 56 fd ff      	movss	-0x2a9d1(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32bb1: f3 0f 11 85 7c ff ff ff      	movss	%xmm0, -0x84(%rbp)
+   32bb9: d9 85 7c ff ff ff            	flds	-0x84(%rbp)
+   32bbf: 9b                           	wait
+   32bc0: e9 dc fe ff ff               	jmp	0x32aa1 <powl+0x61>
+   32bc5: d9 ee                        	fldz
+   32bc7: d9 ca                        	fxch	%st(2)
+   32bc9: db f2                        	fcomi	%st(2), %st
+   32bcb: d9 ee                        	fldz
+   32bcd: d9 cb                        	fxch	%st(3)
+   32bcf: d9 c9                        	fxch	%st(1)
+   32bd1: 76 10                        	jbe	0x32be3 <powl+0x1a3>
+   32bd3: dd db                        	fstp	%st(3)
+   32bd5: d9 e8                        	fld1
+   32bd7: df f3                        	fcompi	%st(3), %st
+   32bd9: d9 ee                        	fldz
+   32bdb: d9 cb                        	fxch	%st(3)
+   32bdd: 0f 87 b7 fe ff ff            	ja	0x32a9a <powl+0x5a>
+   32be3: dd d9                        	fstp	%st(1)
+   32be5: dd da                        	fstp	%st(2)
+   32be7: d9 e8                        	fld1
+   32be9: d9 e0                        	fchs
+   32beb: db f2                        	fcomi	%st(2), %st
+   32bed: 9b                           	wait
+   32bee: 76 23                        	jbe	0x32c13 <powl+0x1d3>
+   32bf0: dd d8                        	fstp	%st(0)
+   32bf2: dd d8                        	fstp	%st(0)
+   32bf4: dd d8                        	fstp	%st(0)
+   32bf6: 9b                           	wait
+   32bf7: f3 0f 10 05 e1 55 fd ff      	movss	-0x2aa1f(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32bff: f3 0f 11 85 78 ff ff ff      	movss	%xmm0, -0x88(%rbp)
+   32c07: d9 85 78 ff ff ff            	flds	-0x88(%rbp)
+   32c0d: 9b                           	wait
+   32c0e: e9 8e fe ff ff               	jmp	0x32aa1 <powl+0x61>
+   32c13: d9 ca                        	fxch	%st(2)
+   32c15: db f2                        	fcomi	%st(2), %st
+   32c17: dd da                        	fstp	%st(2)
+   32c19: d9 ee                        	fldz
+   32c1b: d9 ee                        	fldz
+   32c1d: d9 cb                        	fxch	%st(3)
+   32c1f: 76 12                        	jbe	0x32c33 <powl+0x1f3>
+   32c21: dd d9                        	fstp	%st(1)
+   32c23: dd da                        	fstp	%st(2)
+   32c25: d9 ee                        	fldz
+   32c27: db f2                        	fcomi	%st(2), %st
+   32c29: d9 ee                        	fldz
+   32c2b: d9 cb                        	fxch	%st(3)
+   32c2d: 0f 87 67 fe ff ff            	ja	0x32a9a <powl+0x5a>
+   32c33: dd d9                        	fstp	%st(1)
+   32c35: dd da                        	fstp	%st(2)
+   32c37: db 2d 83 43 fd ff            	fldt	-0x2bc7d(%rip)          # 0x6fc0 <memset+0x6fc0>
+   32c3d: df f1                        	fcompi	%st(1), %st
+   32c3f: 9b                           	wait
+   32c40: 0f 82 8c 00 00 00            	jb	0x32cd2 <powl+0x292>
+   32c46: d9 ee                        	fldz
+   32c48: d9 e8                        	fld1
+   32c4a: d9 cb                        	fxch	%st(3)
+   32c4c: db f3                        	fcomi	%st(3), %st
+   32c4e: dd db                        	fstp	%st(3)
+   32c50: d9 ee                        	fldz
+   32c52: d9 cb                        	fxch	%st(3)
+   32c54: 0f 87 40 fe ff ff            	ja	0x32a9a <powl+0x5a>
+   32c5a: dd d9                        	fstp	%st(1)
+   32c5c: dd da                        	fstp	%st(2)
+   32c5e: d9 ee                        	fldz
+   32c60: d9 ca                        	fxch	%st(2)
+   32c62: db f2                        	fcomi	%st(2), %st
+   32c64: dd da                        	fstp	%st(2)
+   32c66: 9b                           	wait
+   32c67: 76 28                        	jbe	0x32c91 <powl+0x251>
+   32c69: d9 e8                        	fld1
+   32c6b: df f2                        	fcompi	%st(2), %st
+   32c6d: 9b                           	wait
+   32c6e: 76 21                        	jbe	0x32c91 <powl+0x251>
+   32c70: dd d8                        	fstp	%st(0)
+   32c72: dd d8                        	fstp	%st(0)
+   32c74: 9b                           	wait
+   32c75: f3 0f 10 05 63 55 fd ff      	movss	-0x2aa9d(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32c7d: f3 0f 11 85 74 ff ff ff      	movss	%xmm0, -0x8c(%rbp)
+   32c85: d9 85 74 ff ff ff            	flds	-0x8c(%rbp)
+   32c8b: 9b                           	wait
+   32c8c: e9 10 fe ff ff               	jmp	0x32aa1 <powl+0x61>
+   32c91: d9 ee                        	fldz
+   32c93: d9 e8                        	fld1
+   32c95: d9 e0                        	fchs
+   32c97: db f3                        	fcomi	%st(3), %st
+   32c99: d9 cb                        	fxch	%st(3)
+   32c9b: 0f 87 f9 fd ff ff            	ja	0x32a9a <powl+0x5a>
+   32ca1: dd d9                        	fstp	%st(1)
+   32ca3: db f2                        	fcomi	%st(2), %st
+   32ca5: dd da                        	fstp	%st(2)
+   32ca7: 9b                           	wait
+   32ca8: 76 28                        	jbe	0x32cd2 <powl+0x292>
+   32caa: d9 ee                        	fldz
+   32cac: df f2                        	fcompi	%st(2), %st
+   32cae: 9b                           	wait
+   32caf: 76 21                        	jbe	0x32cd2 <powl+0x292>
+   32cb1: dd d8                        	fstp	%st(0)
+   32cb3: dd d8                        	fstp	%st(0)
+   32cb5: 9b                           	wait
+   32cb6: f3 0f 10 05 22 55 fd ff      	movss	-0x2aade(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32cbe: f3 0f 11 85 70 ff ff ff      	movss	%xmm0, -0x90(%rbp)
+   32cc6: d9 85 70 ff ff ff            	flds	-0x90(%rbp)
+   32ccc: 9b                           	wait
+   32ccd: e9 cf fd ff ff               	jmp	0x32aa1 <powl+0x61>
+   32cd2: db 2d b8 39 fd ff            	fldt	-0x2c648(%rip)          # 0x6690 <memset+0x6690>
+   32cd8: d9 ca                        	fxch	%st(2)
+   32cda: df f2                        	fcompi	%st(2), %st
+   32cdc: dd d9                        	fstp	%st(1)
+   32cde: 9b                           	wait
+   32cdf: 72 3f                        	jb	0x32d20 <powl+0x2e0>
+   32ce1: d9 ee                        	fldz
+   32ce3: d9 c9                        	fxch	%st(1)
+   32ce5: df f1                        	fcompi	%st(1), %st
+   32ce7: d9 ee                        	fldz
+   32ce9: d9 ee                        	fldz
+   32ceb: d9 ee                        	fldz
+   32ced: d9 ca                        	fxch	%st(2)
+   32cef: d9 cb                        	fxch	%st(3)
+   32cf1: d9 c9                        	fxch	%st(1)
+   32cf3: d9 ca                        	fxch	%st(2)
+   32cf5: 0f 86 9f fd ff ff            	jbe	0x32a9a <powl+0x5a>
+   32cfb: dd d9                        	fstp	%st(1)
+   32cfd: dd da                        	fstp	%st(2)
+   32cff: dd d8                        	fstp	%st(0)
+   32d01: dd d8                        	fstp	%st(0)
+   32d03: 9b                           	wait
+   32d04: f3 0f 10 05 d4 54 fd ff      	movss	-0x2ab2c(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32d0c: f3 0f 11 85 6c ff ff ff      	movss	%xmm0, -0x94(%rbp)
+   32d14: d9 85 6c ff ff ff            	flds	-0x94(%rbp)
+   32d1a: 9b                           	wait
+   32d1b: e9 81 fd ff ff               	jmp	0x32aa1 <powl+0x61>
+   32d20: db 3c 24                     	fstpt	(%rsp)
+   32d23: 9b                           	wait
+   32d24: e8 27 02 01 00               	callq	0x42f50 <floorl@plt>
+   32d29: db 7d 94                     	fstpt	-0x6c(%rbp)
+   32d2c: 48 8d 3d ed 14 01 00         	leaq	0x114ed(%rip), %rdi     # 0x44220 <memset+0x44220>
+   32d33: e8 18 00 01 00               	callq	0x42d50 <__tls_get_addr@plt>
+   32d38: db 6d a4                     	fldt	-0x5c(%rbp)
+   32d3b: 9b                           	wait
+   32d3c: 49 89 c6                     	movq	%rax, %r14
+   32d3f: db 6d 94                     	fldt	-0x6c(%rbp)
+   32d42: d9 c0                        	fld	%st(0)
+   32d44: db b8 10 00 00 00            	fstpt	0x10(%rax)
+   32d4a: 9b                           	wait
+   32d4b: df e9                        	fucompi	%st(1), %st
+   32d4d: 9b                           	wait
+   32d4e: 0f 9b c1                     	setnp	%cl
+   32d51: 41 0f 94 c5                  	sete	%r13b
+   32d55: 41 20 cd                     	andb	%cl, %r13b
+   32d58: 41 80 fd 01                  	cmpb	$0x1, %r13b
+   32d5c: 48 89 85 40 ff ff ff         	movq	%rax, -0xc0(%rbp)
+   32d63: 75 49                        	jne	0x32dae <powl+0x36e>
+   32d65: d9 e1                        	fabs
+   32d67: d9 05 e3 53 fd ff            	flds	-0x2ac1d(%rip)          # 0x8150 <memset+0x8150>
+   32d6d: d9 c0                        	fld	%st(0)
+   32d6f: db 7d 88                     	fstpt	-0x78(%rbp)
+   32d72: de c9                        	fmulp	%st, %st(1)
+   32d74: 9b                           	wait
+   32d75: 48 89 c3                     	movq	%rax, %rbx
+   32d78: db 3c 24                     	fstpt	(%rsp)
+   32d7b: 9b                           	wait
+   32d7c: e8 cf 01 01 00               	callq	0x42f50 <floorl@plt>
+   32d81: db 6d a4                     	fldt	-0x5c(%rbp)
+   32d84: d9 c1                        	fld	%st(1)
+   32d86: db bb 20 00 00 00            	fstpt	0x20(%rbx)
+   32d8c: db 6d 94                     	fldt	-0x6c(%rbp)
+   32d8f: d9 e1                        	fabs
+   32d91: db 6d 88                     	fldt	-0x78(%rbp)
+   32d94: de c9                        	fmulp	%st, %st(1)
+   32d96: d9 ca                        	fxch	%st(2)
+   32d98: df ea                        	fucompi	%st(2), %st
+   32d9a: dd d9                        	fstp	%st(1)
+   32d9c: 9b                           	wait
+   32d9d: 0f 9a c0                     	setp	%al
+   32da0: 41 0f 95 c7                  	setne	%r15b
+   32da4: 41 08 c7                     	orb	%al, %r15b
+   32da7: 44 89 f8                     	movl	%r15d, %eax
+   32daa: 34 01                        	xorb	$0x1, %al
+   32dac: eb 05                        	jmp	0x32db3 <powl+0x373>
+   32dae: b0 01                        	movb	$0x1, %al
+   32db0: 45 31 ff                     	xorl	%r15d, %r15d
+   32db3: db 2d 07 42 fd ff            	fldt	-0x2bdf9(%rip)          # 0x6fc0 <memset+0x6fc0>
+   32db9: db 6d b0                     	fldt	-0x50(%rbp)
+   32dbc: d9 c9                        	fxch	%st(1)
+   32dbe: df f1                        	fcompi	%st(1), %st
+   32dc0: 9b                           	wait
+   32dc1: 72 79                        	jb	0x32e3c <powl+0x3fc>
+   32dc3: d9 ee                        	fldz
+   32dc5: d9 ca                        	fxch	%st(2)
+   32dc7: db f2                        	fcomi	%st(2), %st
+   32dc9: 9b                           	wait
+   32dca: 76 2b                        	jbe	0x32df7 <powl+0x3b7>
+   32dcc: dd da                        	fstp	%st(2)
+   32dce: dd d9                        	fstp	%st(1)
+   32dd0: dd d8                        	fstp	%st(0)
+   32dd2: 9b                           	wait
+   32dd3: 84 c0                        	testb	%al, %al
+   32dd5: 0f 84 f9 04 00 00            	je	0x332d4 <powl+0x894>
+   32ddb: f3 0f 10 05 fd 53 fd ff      	movss	-0x2ac03(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   32de3: f3 0f 11 85 68 ff ff ff      	movss	%xmm0, -0x98(%rbp)
+   32deb: d9 85 68 ff ff ff            	flds	-0x98(%rbp)
+   32df1: 9b                           	wait
+   32df2: e9 aa fc ff ff               	jmp	0x32aa1 <powl+0x61>
+   32df7: d9 ca                        	fxch	%st(2)
+   32df9: df f2                        	fcompi	%st(2), %st
+   32dfb: 9b                           	wait
+   32dfc: 76 3e                        	jbe	0x32e3c <powl+0x3fc>
+   32dfe: dd d9                        	fstp	%st(1)
+   32e00: dd d8                        	fstp	%st(0)
+   32e02: d9 ee                        	fldz
+   32e04: d9 e0                        	fchs
+   32e06: 84 c0                        	testb	%al, %al
+   32e08: d9 ee                        	fldz
+   32e0a: d9 ee                        	fldz
+   32e0c: d9 ee                        	fldz
+   32e0e: d9 ca                        	fxch	%st(2)
+   32e10: d9 cb                        	fxch	%st(3)
+   32e12: d9 c9                        	fxch	%st(1)
+   32e14: d9 ca                        	fxch	%st(2)
+   32e16: 0f 84 7e fc ff ff            	je	0x32a9a <powl+0x5a>
+   32e1c: dd d9                        	fstp	%st(1)
+   32e1e: dd da                        	fstp	%st(2)
+   32e20: dd d8                        	fstp	%st(0)
+   32e22: dd d8                        	fstp	%st(0)
+   32e24: 9b                           	wait
+   32e25: 0f 57 c0                     	xorps	%xmm0, %xmm0
+   32e28: f2 0f 11 85 28 ff ff ff      	movsd	%xmm0, -0xd8(%rbp)
+   32e30: dd 85 28 ff ff ff            	fldl	-0xd8(%rbp)
+   32e36: 9b                           	wait
+   32e37: e9 65 fc ff ff               	jmp	0x32aa1 <powl+0x61>
+   32e3c: 4d 8d b6 10 00 00 00         	leaq	0x10(%r14), %r14
+   32e43: d9 ee                        	fldz
+   32e45: db f1                        	fcomi	%st(1), %st
+   32e47: 9b                           	wait
+   32e48: 0f 93 c3                     	setae	%bl
+   32e4b: 72 64                        	jb	0x32eb1 <powl+0x471>
+   32e4d: d9 c9                        	fxch	%st(1)
+   32e4f: db e9                        	fucomi	%st(1), %st
+   32e51: dd d9                        	fstp	%st(1)
+   32e53: 9b                           	wait
+   32e54: 0f 9a c0                     	setp	%al
+   32e57: 0f 95 c1                     	setne	%cl
+   32e5a: 08 c1                        	orb	%al, %cl
+   32e5c: 75 62                        	jne	0x32ec0 <powl+0x480>
+   32e5e: 0f 57 c0                     	xorps	%xmm0, %xmm0
+   32e61: f2 0f 11 85 10 ff ff ff      	movsd	%xmm0, -0xf0(%rbp)
+   32e69: dd 85 10 ff ff ff            	fldl	-0xf0(%rbp)
+   32e6f: df f2                        	fcompi	%st(2), %st
+   32e71: 9b                           	wait
+   32e72: 0f 86 c0 04 00 00            	jbe	0x33338 <powl+0x8f8>
+   32e78: dd d9                        	fstp	%st(1)
+   32e7a: db 3c 24                     	fstpt	(%rsp)
+   32e7d: 9b                           	wait
+   32e7e: e8 fd fe 00 00               	callq	0x42d80 <__signbitl@plt>
+   32e83: 85 c0                        	testl	%eax, %eax
+   32e85: 0f 94 c0                     	sete	%al
+   32e88: 41 80 f7 01                  	xorb	$0x1, %r15b
+   32e8c: 41 08 c7                     	orb	%al, %r15b
+   32e8f: 0f 85 8d 05 00 00            	jne	0x33422 <powl+0x9e2>
+   32e95: f3 0f 10 05 f3 51 fd ff      	movss	-0x2ae0d(%rip), %xmm0   # 0x8090 <memset+0x8090>
+   32e9d: f3 0f 11 85 60 ff ff ff      	movss	%xmm0, -0xa0(%rbp)
+   32ea5: d9 85 60 ff ff ff            	flds	-0xa0(%rbp)
+   32eab: 9b                           	wait
+   32eac: e9 f0 fb ff ff               	jmp	0x32aa1 <powl+0x61>
+   32eb1: dd d8                        	fstp	%st(0)
+   32eb3: dd d9                        	fstp	%st(1)
+   32eb5: 9b                           	wait
+   32eb6: 45 84 ed                     	testb	%r13b, %r13b
+   32eb9: 75 11                        	jne	0x32ecc <powl+0x48c>
+   32ebb: e9 87 00 00 00               	jmp	0x32f47 <powl+0x507>
+   32ec0: dd d9                        	fstp	%st(1)
+   32ec2: 9b                           	wait
+   32ec3: 45 84 ed                     	testb	%r13b, %r13b
+   32ec6: 0f 84 e3 04 00 00            	je	0x333af <powl+0x96f>
+   32ecc: db 3c 24                     	fstpt	(%rsp)
+   32ecf: 9b                           	wait
+   32ed0: e8 7b 00 01 00               	callq	0x42f50 <floorl@plt>
+   32ed5: db 6d b0                     	fldt	-0x50(%rbp)
+   32ed8: d9 c1                        	fld	%st(1)
+   32eda: 41 db 3e                     	fstpt	(%r14)
+   32edd: d9 c9                        	fxch	%st(1)
+   32edf: df e9                        	fucompi	%st(1), %st
+   32ee1: 9b                           	wait
+   32ee2: 0f 9a c0                     	setp	%al
+   32ee5: 0f 95 c1                     	setne	%cl
+   32ee8: 08 c1                        	orb	%al, %cl
+   32eea: 75 5b                        	jne	0x32f47 <powl+0x507>
+   32eec: db 6d a4                     	fldt	-0x5c(%rbp)
+   32eef: d9 e1                        	fabs
+   32ef1: f2 0f 10 05 e7 2b fd ff      	movsd	-0x2d419(%rip), %xmm0   # 0x5ae0 <memset+0x5ae0>
+   32ef9: f2 0f 11 85 00 ff ff ff      	movsd	%xmm0, -0x100(%rbp)
+   32f01: dd 85 00 ff ff ff            	fldl	-0x100(%rbp)
+   32f07: df f1                        	fcompi	%st(1), %st
+   32f09: dd d8                        	fstp	%st(0)
+   32f0b: 9b                           	wait
+   32f0c: 76 39                        	jbe	0x32f47 <powl+0x507>
+   32f0e: d9 7d bc                     	fnstcw	-0x44(%rbp)
+   32f11: 0f b7 45 bc                  	movzwl	-0x44(%rbp), %eax
+   32f15: 0d 00 0c 00 00               	orl	$0xc00, %eax            # imm = 0xC00
+   32f1a: 66 89 45 a0                  	movw	%ax, -0x60(%rbp)
+   32f1e: d9 6d a0                     	fldcw	-0x60(%rbp)
+   32f21: db 6d a4                     	fldt	-0x5c(%rbp)
+   32f24: db 9d 58 ff ff ff            	fistpl	-0xa8(%rbp)
+   32f2a: d9 6d bc                     	fldcw	-0x44(%rbp)
+   32f2d: 8b bd 58 ff ff ff            	movl	-0xa8(%rbp), %edi
+   32f33: db 3c 24                     	fstpt	(%rsp)
+   32f36: 9b                           	wait
+   32f37: e8 14 06 00 00               	callq	0x33550 <powl+0xb10>
+   32f3c: d9 c0                        	fld	%st(0)
+   32f3e: 41 db 3e                     	fstpt	(%r14)
+   32f41: 9b                           	wait
+   32f42: e9 da fb ff ff               	jmp	0x32b21 <powl+0xe1>
+   32f47: d9 c0                        	fld	%st(0)
+   32f49: d9 e1                        	fabs
+   32f4b: 88 5d 94                     	movb	%bl, -0x6c(%rbp)
+   32f4e: 84 db                        	testb	%bl, %bl
+   32f50: d9 c9                        	fxch	%st(1)
+   32f52: db c9                        	fcmovne	%st(1), %st
+   32f54: dd d9                        	fstp	%st(1)
+   32f56: 9b                           	wait
+   32f57: d9 c0                        	fld	%st(0)
+   32f59: db 7d b0                     	fstpt	-0x50(%rbp)
+   32f5c: db 3c 24                     	fstpt	(%rsp)
+   32f5f: 9b                           	wait
+   32f60: e8 7b fd 00 00               	callq	0x42ce0 <ilogbl@plt>
+   32f65: 89 c3                        	movl	%eax, %ebx
+   32f67: db 6d a4                     	fldt	-0x5c(%rbp)
+   32f6a: db 3c 24                     	fstpt	(%rsp)
+   32f6d: 9b                           	wait
+   32f6e: e8 6d fd 00 00               	callq	0x42ce0 <ilogbl@plt>
+   32f73: 83 f8 0f                     	cmpl	$0xf, %eax
+   32f76: 0f 9d c0                     	setge	%al
+   32f79: 8d 4b ff                     	leal	-0x1(%rbx), %ecx
+   32f7c: 83 f9 fe                     	cmpl	$-0x2, %ecx
+   32f7f: 0f 92 c1                     	setb	%cl
+   32f82: 20 c1                        	andb	%al, %cl
+   32f84: 80 f9 01                     	cmpb	$0x1, %cl
+   32f87: 75 23                        	jne	0x32fac <powl+0x56c>
+   32f89: db 6d a4                     	fldt	-0x5c(%rbp)
+   32f8c: db 3c 24                     	fstpt	(%rsp)
+   32f8f: 9b                           	wait
+   32f90: e8 eb fd 00 00               	callq	0x42d80 <__signbitl@plt>
+   32f95: c1 eb 1f                     	shrl	$0x1f, %ebx
+   32f98: 39 d8                        	cmpl	%ebx, %eax
+   32f9a: 0f 85 50 03 00 00            	jne	0x332f0 <powl+0x8b0>
+   32fa0: db 2d 3a 44 fd ff            	fldt	-0x2bbc6(%rip)          # 0x73e0 <memset+0x73e0>
+   32fa6: 9b                           	wait
+   32fa7: e9 4b 03 00 00               	jmp	0x332f7 <powl+0x8b7>
+   32fac: db 6d b0                     	fldt	-0x50(%rbp)
+   32faf: db 3c 24                     	fstpt	(%rsp)
+   32fb2: 9b                           	wait
+   32fb3: 48 8d 7d c0                  	leaq	-0x40(%rbp), %rdi
+   32fb7: e8 64 fe 00 00               	callq	0x42e20 <frexpl@plt>
+   32fbc: db 2d 4e 3e fd ff            	fldt	-0x2c1b2(%rip)          # 0x6e10 <memset+0x6e10>
+   32fc2: 9b                           	wait
+   32fc3: 31 c0                        	xorl	%eax, %eax
+   32fc5: df f1                        	fcompi	%st(1), %st
+   32fc7: 9b                           	wait
+   32fc8: 0f 93 c0                     	setae	%al
+   32fcb: c1 e0 04                     	shll	$0x4, %eax
+   32fce: 8d 48 01                     	leal	0x1(%rax), %ecx
+   32fd1: 83 c8 09                     	orl	$0x9, %eax
+   32fd4: 89 c2                        	movl	%eax, %edx
+   32fd6: c1 e2 04                     	shll	$0x4, %edx
+   32fd9: 48 8d 35 b0 8c fd ff         	leaq	-0x27350(%rip), %rsi    # 0xbc90 <__fe_dfl_mode+0x2db0>
+   32fe0: db 2c 32                     	fldt	(%rdx,%rsi)
+   32fe3: df f1                        	fcompi	%st(1), %st
+   32fe5: 9b                           	wait
+   32fe6: 0f 42 c1                     	cmovbl	%ecx, %eax
+   32fe9: 8d 48 04                     	leal	0x4(%rax), %ecx
+   32fec: 89 ca                        	movl	%ecx, %edx
+   32fee: c1 e2 04                     	shll	$0x4, %edx
+   32ff1: db 2c 32                     	fldt	(%rdx,%rsi)
+   32ff4: df f1                        	fcompi	%st(1), %st
+   32ff6: 9b                           	wait
+   32ff7: 0f 42 c8                     	cmovbl	%eax, %ecx
+   32ffa: 8d 41 02                     	leal	0x2(%rcx), %eax
+   32ffd: 48 89 c2                     	movq	%rax, %rdx
+   33000: 48 c1 e2 04                  	shlq	$0x4, %rdx
+   33004: db 2c 32                     	fldt	(%rdx,%rsi)
+   33007: df f1                        	fcompi	%st(1), %st
+   33009: 9b                           	wait
+   3300a: 0f 43 c8                     	cmovael	%eax, %ecx
+   3300d: 8b 45 c0                     	movl	-0x40(%rbp), %eax
+   33010: 89 45 b0                     	movl	%eax, -0x50(%rbp)
+   33013: db 2d d7 40 fd ff            	fldt	-0x2bf29(%rip)          # 0x70f0 <memset+0x70f0>
+   33019: d9 c9                        	fxch	%st(1)
+   3301b: db f1                        	fcomi	%st(1), %st
+   3301d: dd d9                        	fstp	%st(1)
+   3301f: 9b                           	wait
+   33020: 41 bf ff ff ff ff            	movl	$0xffffffff, %r15d      # imm = 0xFFFFFFFF
+   33026: 44 0f 42 f9                  	cmovbl	%ecx, %r15d
+   3302a: 41 8d 47 01                  	leal	0x1(%r15), %eax
+   3302e: 48 89 c1                     	movq	%rax, %rcx
+   33031: 48 c1 e1 04                  	shlq	$0x4, %rcx
+   33035: db 2c 31                     	fldt	(%rcx,%rsi)
+   33038: dc e9                        	fsubr	%st, %st(1)
+   3303a: 9b                           	wait
+   3303b: 25 fe 00 00 00               	andl	$0xfe, %eax
+   33040: 48 8d 0d 59 8e fd ff         	leaq	-0x271a7(%rip), %rcx    # 0xbea0 <__fe_dfl_mode+0x2fc0>
+   33047: db 2c c1                     	fldt	(%rcx,%rax,8)
+   3304a: de ea                        	fsubrp	%st, %st(2)
+   3304c: 9b                           	wait
+   3304d: de f9                        	fdivrp	%st, %st(1)
+   3304f: 9b                           	wait
+   33050: d9 c0                        	fld	%st(0)
+   33052: db bd e8 fe ff ff            	fstpt	-0x118(%rbp)
+   33058: d9 c0                        	fld	%st(0)
+   3305a: d8 c9                        	fmul	%st(1), %st
+   3305c: 9b                           	wait
+   3305d: 48 8b 85 40 ff ff ff         	movq	-0xc0(%rbp), %rax
+   33064: 48 89 c3                     	movq	%rax, %rbx
+   33067: 4d 89 f5                     	movq	%r14, %r13
+   3306a: 49 89 c6                     	movq	%rax, %r14
+   3306d: db b8 30 00 00 00            	fstpt	0x30(%rax)
+   33073: db a8 30 00 00 00            	fldt	0x30(%rax)
+   33079: db 2d 51 3f fd ff            	fldt	-0x2c0af(%rip)          # 0x6fd0 <memset+0x6fd0>
+   3307f: 9b                           	wait
+   33080: d8 ca                        	fmul	%st(2), %st
+   33082: db 2d 98 37 fd ff            	fldt	-0x2c868(%rip)          # 0x6820 <memset+0x6820>
+   33088: de c1                        	faddp	%st, %st(1)
+   3308a: 9b                           	wait
+   3308b: d8 ca                        	fmul	%st(2), %st
+   3308d: db 2d 9d 3c fd ff            	fldt	-0x2c363(%rip)          # 0x6d30 <memset+0x6d30>
+   33093: de c1                        	faddp	%st, %st(1)
+   33095: 9b                           	wait
+   33096: d8 ca                        	fmul	%st(2), %st
+   33098: db 2d e2 41 fd ff            	fldt	-0x2be1e(%rip)          # 0x7280 <memset+0x7280>
+   3309e: de c1                        	faddp	%st, %st(1)
+   330a0: 9b                           	wait
+   330a1: de c9                        	fmulp	%st, %st(1)
+   330a3: db 2d 07 43 fd ff            	fldt	-0x2bcf9(%rip)          # 0x73b0 <memset+0x73b0>
+   330a9: 9b                           	wait
+   330aa: d8 c2                        	fadd	%st(2), %st
+   330ac: 9b                           	wait
+   330ad: d8 ca                        	fmul	%st(2), %st
+   330af: db 2d bb 3f fd ff            	fldt	-0x2c045(%rip)          # 0x7070 <memset+0x7070>
+   330b5: de c1                        	faddp	%st, %st(1)
+   330b7: 9b                           	wait
+   330b8: d8 ca                        	fmul	%st(2), %st
+   330ba: db 2d f0 34 fd ff            	fldt	-0x2cb10(%rip)          # 0x65b0 <memset+0x65b0>
+   330c0: de c1                        	faddp	%st, %st(1)
+   330c2: 9b                           	wait
+   330c3: de f9                        	fdivrp	%st, %st(1)
+   330c5: de c9                        	fmulp	%st, %st(1)
+   330c7: d9 c0                        	fld	%st(0)
+   330c9: db bd f4 fe ff ff            	fstpt	-0x10c(%rbp)
+   330cf: 41 db 7d 00                  	fstpt	(%r13)
+   330d3: db a8 30 00 00 00            	fldt	0x30(%rax)
+   330d9: db 3c 24                     	fstpt	(%rsp)
+   330dc: 9b                           	wait
+   330dd: bf ff ff ff ff               	movl	$0xffffffff, %edi       # imm = 0xFFFFFFFF
+   330e2: e8 49 fd 00 00               	callq	0x42e30 <ldexpl@plt>
+   330e7: db ad f4 fe ff ff            	fldt	-0x10c(%rbp)
+   330ed: de e1                        	fsubp	%st, %st(1)
+   330ef: db 2d 2b 3d fd ff            	fldt	-0x2c2d5(%rip)          # 0x6e20 <memset+0x6e20>
+   330f5: d9 c0                        	fld	%st(0)
+   330f7: d8 ca                        	fmul	%st(2), %st
+   330f9: 41 db be 30 00 00 00         	fstpt	0x30(%r14)
+   33100: 41 db ae 30 00 00 00         	fldt	0x30(%r14)
+   33107: de c2                        	faddp	%st, %st(2)
+   33109: d9 c9                        	fxch	%st(1)
+   3310b: 41 db be 30 00 00 00         	fstpt	0x30(%r14)
+   33112: 41 db ae 30 00 00 00         	fldt	0x30(%r14)
+   33119: db ad e8 fe ff ff            	fldt	-0x118(%rbp)
+   3311f: dc ca                        	fmul	%st, %st(2)
+   33121: d9 ca                        	fxch	%st(2)
+   33123: de c1                        	faddp	%st, %st(1)
+   33125: 41 db be 30 00 00 00         	fstpt	0x30(%r14)
+   3312c: 41 db ae 30 00 00 00         	fldt	0x30(%r14)
+   33133: de c1                        	faddp	%st, %st(1)
+   33135: 41 db be 30 00 00 00         	fstpt	0x30(%r14)
+   3313c: 9b                           	wait
+   3313d: 41 f7 d7                     	notl	%r15d
+   33140: 44 89 bd 50 ff ff ff         	movl	%r15d, -0xb0(%rbp)
+   33147: db 85 50 ff ff ff            	fildl	-0xb0(%rbp)
+   3314d: d9 c0                        	fld	%st(0)
+   3314f: 41 db 7d 00                  	fstpt	(%r13)
+   33153: db 3c 24                     	fstpt	(%rsp)
+   33156: 9b                           	wait
+   33157: bf fb ff ff ff               	movl	$0xfffffffb, %edi       # imm = 0xFFFFFFFB
+   3315c: e8 cf fc 00 00               	callq	0x42e30 <ldexpl@plt>
+   33161: 8b 45 b0                     	movl	-0x50(%rbp), %eax
+   33164: 89 85 4c ff ff ff            	movl	%eax, -0xb4(%rbp)
+   3316a: da 85 4c ff ff ff            	fiaddl	-0xb4(%rbp)
+   33170: 41 db 7d 00                  	fstpt	(%r13)
+   33174: 9b                           	wait
+   33175: 4c 89 6d 88                  	movq	%r13, -0x78(%rbp)
+   33179: db 6d a4                     	fldt	-0x5c(%rbp)
+   3317c: db 3c 24                     	fstpt	(%rsp)
+   3317f: 9b                           	wait
+   33180: e8 eb 05 00 00               	callq	0x33770 <powl+0xd30>
+   33185: 48 89 5d b0                  	movq	%rbx, -0x50(%rbp)
+   33189: d9 c0                        	fld	%st(0)
+   3318b: db bb 20 00 00 00            	fstpt	0x20(%rbx)
+   33191: db 6d a4                     	fldt	-0x5c(%rbp)
+   33194: dc e1                        	fsub	%st, %st(1)
+   33196: 41 db ae 30 00 00 00         	fldt	0x30(%r14)
+   3319d: 41 db 6d 00                  	fldt	(%r13)
+   331a1: de cb                        	fmulp	%st, %st(3)
+   331a3: de c9                        	fmulp	%st, %st(1)
+   331a5: de c1                        	faddp	%st, %st(1)
+   331a7: d9 c0                        	fld	%st(0)
+   331a9: db bb 40 00 00 00            	fstpt	0x40(%rbx)
+   331af: db 3c 24                     	fstpt	(%rsp)
+   331b2: 9b                           	wait
+   331b3: e8 b8 05 00 00               	callq	0x33770 <powl+0xd30>
+   331b8: 48 89 d8                     	movq	%rbx, %rax
+   331bb: 49 89 c5                     	movq	%rax, %r13
+   331be: d9 c0                        	fld	%st(0)
+   331c0: db b8 50 00 00 00            	fstpt	0x50(%rax)
+   331c6: db ab 40 00 00 00            	fldt	0x40(%rbx)
+   331cc: d8 e1                        	fsub	%st(1), %st
+   331ce: 9b                           	wait
+   331cf: 49 89 c7                     	movq	%rax, %r15
+   331d2: db b8 60 00 00 00            	fstpt	0x60(%rax)
+   331d8: 9b                           	wait
+   331d9: 48 8b 45 88                  	movq	-0x78(%rbp), %rax
+   331dd: db 28                        	fldt	(%rax)
+   331df: 9b                           	wait
+   331e0: 48 8b 45 b0                  	movq	-0x50(%rbp), %rax
+   331e4: db a8 20 00 00 00            	fldt	0x20(%rax)
+   331ea: de c9                        	fmulp	%st, %st(1)
+   331ec: de c1                        	faddp	%st, %st(1)
+   331ee: d9 c0                        	fld	%st(0)
+   331f0: db bb 40 00 00 00            	fstpt	0x40(%rbx)
+   331f6: db 3c 24                     	fstpt	(%rsp)
+   331f9: 9b                           	wait
+   331fa: e8 71 05 00 00               	callq	0x33770 <powl+0xd30>
+   331ff: d9 c0                        	fld	%st(0)
+   33201: 41 db bd 50 00 00 00         	fstpt	0x50(%r13)
+   33208: db ab 40 00 00 00            	fldt	0x40(%rbx)
+   3320e: de e1                        	fsubp	%st, %st(1)
+   33210: 41 db af 60 00 00 00         	fldt	0x60(%r15)
+   33217: de c1                        	faddp	%st, %st(1)
+   33219: 9b                           	wait
+   3321a: 48 89 5d b0                  	movq	%rbx, -0x50(%rbp)
+   3321e: d9 c0                        	fld	%st(0)
+   33220: db bb 40 00 00 00            	fstpt	0x40(%rbx)
+   33226: db 3c 24                     	fstpt	(%rsp)
+   33229: 9b                           	wait
+   3322a: e8 41 05 00 00               	callq	0x33770 <powl+0xd30>
+   3322f: 4c 89 fb                     	movq	%r15, %rbx
+   33232: d9 c0                        	fld	%st(0)
+   33234: 41 db bf 60 00 00 00         	fstpt	0x60(%r15)
+   3323b: 41 db ad 50 00 00 00         	fldt	0x50(%r13)
+   33242: de c1                        	faddp	%st, %st(1)
+   33244: db 3c 24                     	fstpt	(%rsp)
+   33247: 9b                           	wait
+   33248: bf 05 00 00 00               	movl	$0x5, %edi
+   3324d: e8 de fb 00 00               	callq	0x42e30 <ldexpl@plt>
+   33252: d9 c0                        	fld	%st(0)
+   33254: 9b                           	wait
+   33255: 48 8b 45 88                  	movq	-0x78(%rbp), %rax
+   33259: d9 c9                        	fxch	%st(1)
+   3325b: db 38                        	fstpt	(%rax)
+   3325d: 9b                           	wait
+   3325e: c7 85 48 ff ff ff 20 00 00 00	movl	$0x20, -0xb8(%rbp)
+   33268: db 85 48 ff ff ff            	fildl	-0xb8(%rbp)
+   3326e: d9 c0                        	fld	%st(0)
+   33270: d8 0d 8a 50 fd ff            	fmuls	-0x2af76(%rip)          # 0x8300 <memset+0x8300>
+   33276: d9 05 64 4f fd ff            	flds	-0x2b09c(%rip)          # 0x81e0 <memset+0x81e0>
+   3327c: d9 cb                        	fxch	%st(3)
+   3327e: db f1                        	fcomi	%st(1), %st
+   33280: dd d9                        	fstp	%st(1)
+   33282: d9 ee                        	fldz
+   33284: d9 c9                        	fxch	%st(1)
+   33286: d9 cb                        	fxch	%st(3)
+   33288: d9 c9                        	fxch	%st(1)
+   3328a: 0f 87 0a f8 ff ff            	ja	0x32a9a <powl+0x5a>
+   33290: dd d9                        	fstp	%st(1)
+   33292: dd d8                        	fstp	%st(0)
+   33294: 9b                           	wait
+   33295: c7 85 54 ff ff ff e0 ff ff ff	movl	$0xffffffe0, -0xac(%rbp) # imm = 0xFFFFFFE0
+   3329f: db 85 54 ff ff ff            	fildl	-0xac(%rbp)
+   332a5: d8 0d 15 4e fd ff            	fmuls	-0x2b1eb(%rip)          # 0x80c0 <memset+0x80c0>
+   332ab: df f2                        	fcompi	%st(2), %st
+   332ad: 9b                           	wait
+   332ae: 0f 86 05 01 00 00            	jbe	0x333b9 <powl+0x979>
+   332b4: dd d9                        	fstp	%st(1)
+   332b6: dd d8                        	fstp	%st(0)
+   332b8: 9b                           	wait
+   332b9: 48 8b 85 40 ff ff ff         	movq	-0xc0(%rbp), %rax
+   332c0: db a8 00 00 00 00            	fldt	(%rax)
+   332c6: db a8 00 00 00 00            	fldt	(%rax)
+   332cc: de c9                        	fmulp	%st, %st(1)
+   332ce: 9b                           	wait
+   332cf: e9 cd f7 ff ff               	jmp	0x32aa1 <powl+0x61>
+   332d4: f3 0f 10 05 b4 4d fd ff      	movss	-0x2b24c(%rip), %xmm0   # 0x8090 <memset+0x8090>
+   332dc: f3 0f 11 85 64 ff ff ff      	movss	%xmm0, -0x9c(%rbp)
+   332e4: d9 85 64 ff ff ff            	flds	-0x9c(%rbp)
+   332ea: 9b                           	wait
+   332eb: e9 b1 f7 ff ff               	jmp	0x32aa1 <powl+0x61>
+   332f0: db 2d 6a 36 fd ff            	fldt	-0x2c996(%rip)          # 0x6960 <memset+0x6960>
+   332f6: 9b                           	wait
+   332f7: d9 c0                        	fld	%st(0)
+   332f9: db bd 30 ff ff ff            	fstpt	-0xd0(%rbp)
+   332ff: 9b                           	wait
+   33300: db 7d c0                     	fstpt	-0x40(%rbp)
+   33303: 9b                           	wait
+   33304: 0f b6 45 94                  	movzbl	-0x6c(%rbp), %eax
+   33308: 41 20 c7                     	andb	%al, %r15b
+   3330b: 41 80 ff 01                  	cmpb	$0x1, %r15b
+   3330f: 75 0f                        	jne	0x33320 <powl+0x8e0>
+   33311: db ad 30 ff ff ff            	fldt	-0xd0(%rbp)
+   33317: d9 e0                        	fchs
+   33319: db bd 30 ff ff ff            	fstpt	-0xd0(%rbp)
+   3331f: 9b                           	wait
+   33320: db 6d c0                     	fldt	-0x40(%rbp)
+   33323: db ad 30 ff ff ff            	fldt	-0xd0(%rbp)
+   33329: de c9                        	fmulp	%st, %st(1)
+   3332b: db 7d c0                     	fstpt	-0x40(%rbp)
+   3332e: 9b                           	wait
+   3332f: db 6d c0                     	fldt	-0x40(%rbp)
+   33332: 9b                           	wait
+   33333: e9 e9 f7 ff ff               	jmp	0x32b21 <powl+0xe1>
+   33338: f2 0f 11 85 18 ff ff ff      	movsd	%xmm0, -0xe8(%rbp)
+   33340: dd 85 18 ff ff ff            	fldl	-0xe8(%rbp)
+   33346: d9 ee                        	fldz
+   33348: d9 cb                        	fxch	%st(3)
+   3334a: df f1                        	fcompi	%st(1), %st
+   3334c: dd d8                        	fstp	%st(0)
+   3334e: d9 ee                        	fldz
+   33350: d9 ee                        	fldz
+   33352: d9 c9                        	fxch	%st(1)
+   33354: d9 cb                        	fxch	%st(3)
+   33356: d9 c9                        	fxch	%st(1)
+   33358: d9 ca                        	fxch	%st(2)
+   3335a: 0f 86 3a f7 ff ff            	jbe	0x32a9a <powl+0x5a>
+   33360: dd d9                        	fstp	%st(1)
+   33362: dd da                        	fstp	%st(2)
+   33364: dd d8                        	fstp	%st(0)
+   33366: db 3c 24                     	fstpt	(%rsp)
+   33369: 9b                           	wait
+   3336a: e8 11 fa 00 00               	callq	0x42d80 <__signbitl@plt>
+   3336f: 85 c0                        	testl	%eax, %eax
+   33371: 0f 95 c0                     	setne	%al
+   33374: d9 ee                        	fldz
+   33376: d9 e0                        	fchs
+   33378: 41 84 c7                     	testb	%al, %r15b
+   3337b: d9 ee                        	fldz
+   3337d: d9 ee                        	fldz
+   3337f: d9 ee                        	fldz
+   33381: d9 ca                        	fxch	%st(2)
+   33383: d9 cb                        	fxch	%st(3)
+   33385: d9 c9                        	fxch	%st(1)
+   33387: d9 ca                        	fxch	%st(2)
+   33389: 0f 85 0b f7 ff ff            	jne	0x32a9a <powl+0x5a>
+   3338f: dd d9                        	fstp	%st(1)
+   33391: dd da                        	fstp	%st(2)
+   33393: dd d8                        	fstp	%st(0)
+   33395: dd d8                        	fstp	%st(0)
+   33397: 9b                           	wait
+   33398: 0f 57 c0                     	xorps	%xmm0, %xmm0
+   3339b: f2 0f 11 85 20 ff ff ff      	movsd	%xmm0, -0xe0(%rbp)
+   333a3: dd 85 20 ff ff ff            	fldl	-0xe0(%rbp)
+   333a9: 9b                           	wait
+   333aa: e9 f2 f6 ff ff               	jmp	0x32aa1 <powl+0x61>
+   333af: dc e0                        	fsub	%st, %st(0)
+   333b1: dc f0                        	fdiv	%st, %st(0)
+   333b3: 9b                           	wait
+   333b4: e9 e8 f6 ff ff               	jmp	0x32aa1 <powl+0x61>
+   333b9: 48 89 c6                     	movq	%rax, %rsi
+   333bc: d9 7d be                     	fnstcw	-0x42(%rbp)
+   333bf: 0f b7 45 be                  	movzwl	-0x42(%rbp), %eax
+   333c3: 0d 00 0c 00 00               	orl	$0xc00, %eax            # imm = 0xC00
+   333c8: 66 89 45 a2                  	movw	%ax, -0x5e(%rbp)
+   333cc: d9 6d a2                     	fldcw	-0x5e(%rbp)
+   333cf: 48 89 d8                     	movq	%rbx, %rax
+   333d2: 49 8d 9e 30 00 00 00         	leaq	0x30(%r14), %rbx
+   333d9: 48 8b 4d b0                  	movq	-0x50(%rbp), %rcx
+   333dd: 48 8d 91 40 00 00 00         	leaq	0x40(%rcx), %rdx
+   333e4: d9 c9                        	fxch	%st(1)
+   333e6: df bd 08 ff ff ff            	fistpll	-0xf8(%rbp)
+   333ec: d9 6d be                     	fldcw	-0x42(%rbp)
+   333ef: 48 8d 88 60 00 00 00         	leaq	0x60(%rax), %rcx
+   333f6: 48 8b 85 08 ff ff ff         	movq	-0xf8(%rbp), %rax
+   333fd: db 2a                        	fldt	(%rdx)
+   333ff: db 29                        	fldt	(%rcx)
+   33401: de e9                        	fsubrp	%st, %st(1)
+   33403: d9 c0                        	fld	%st(0)
+   33405: db 39                        	fstpt	(%rcx)
+   33407: d9 ee                        	fldz
+   33409: d9 c9                        	fxch	%st(1)
+   3340b: db f1                        	fcomi	%st(1), %st
+   3340d: dd d9                        	fstp	%st(1)
+   3340f: 9b                           	wait
+   33410: 76 2c                        	jbe	0x3343e <powl+0x9fe>
+   33412: 48 ff c0                     	incq	%rax
+   33415: d9 e8                        	fld1
+   33417: de f2                        	fdivp	%st, %st(2)
+   33419: de e1                        	fsubp	%st, %st(1)
+   3341b: d9 c0                        	fld	%st(0)
+   3341d: db 39                        	fstpt	(%rcx)
+   3341f: 9b                           	wait
+   33420: eb 1f                        	jmp	0x33441 <powl+0xa01>
+   33422: f3 0f 10 05 b6 4d fd ff      	movss	-0x2b24a(%rip), %xmm0   # 0x81e0 <memset+0x81e0>
+   3342a: f3 0f 11 85 5c ff ff ff      	movss	%xmm0, -0xa4(%rbp)
+   33432: d9 85 5c ff ff ff            	flds	-0xa4(%rbp)
+   33438: 9b                           	wait
+   33439: e9 63 f6 ff ff               	jmp	0x32aa1 <powl+0x61>
+   3343e: dd d9                        	fstp	%st(1)
+   33440: 9b                           	wait
+   33441: 49 89 f6                     	movq	%rsi, %r14
+   33444: db 2d 46 3e fd ff            	fldt	-0x2c1ba(%rip)          # 0x7290 <memset+0x7290>
+   3344a: d8 c9                        	fmul	%st(1), %st
+   3344c: db 2d 6e 3f fd ff            	fldt	-0x2c092(%rip)          # 0x73c0 <memset+0x73c0>
+   33452: de c1                        	faddp	%st, %st(1)
+   33454: 9b                           	wait
+   33455: d8 c9                        	fmul	%st(1), %st
+   33457: db 2d 63 3d fd ff            	fldt	-0x2c29d(%rip)          # 0x71c0 <memset+0x71c0>
+   3345d: de c1                        	faddp	%st, %st(1)
+   3345f: 9b                           	wait
+   33460: d8 c9                        	fmul	%st(1), %st
+   33462: db 2d b8 40 fd ff            	fldt	-0x2bf48(%rip)          # 0x7520 <memset+0x7520>
+   33468: de c1                        	faddp	%st, %st(1)
+   3346a: 9b                           	wait
+   3346b: d8 c9                        	fmul	%st(1), %st
+   3346d: db 2d 2d 3e fd ff            	fldt	-0x2c1d3(%rip)          # 0x72a0 <memset+0x72a0>
+   33473: de c1                        	faddp	%st, %st(1)
+   33475: 9b                           	wait
+   33476: d8 c9                        	fmul	%st(1), %st
+   33478: db 2d 52 3f fd ff            	fldt	-0x2c0ae(%rip)          # 0x73d0 <memset+0x73d0>
+   3347e: de c1                        	faddp	%st, %st(1)
+   33480: 9b                           	wait
+   33481: d8 c9                        	fmul	%st(1), %st
+   33483: db 2d a7 3d fd ff            	fldt	-0x2c259(%rip)          # 0x7230 <memset+0x7230>
+   33489: de c1                        	faddp	%st, %st(1)
+   3348b: 9b                           	wait
+   3348c: de c9                        	fmulp	%st, %st(1)
+   3348e: db 3b                        	fstpt	(%rbx)
+   33490: 9b                           	wait
+   33491: 48 8d 78 1f                  	leaq	0x1f(%rax), %rdi
+   33495: 31 c9                        	xorl	%ecx, %ecx
+   33497: 48 85 c0                     	testq	%rax, %rax
+   3349a: 0f 99 c1                     	setns	%cl
+   3349d: 48 0f 49 f8                  	cmovnsq	%rax, %rdi
+   334a1: 48 c1 ef 05                  	shrq	$0x5, %rdi
+   334a5: 01 cf                        	addl	%ecx, %edi
+   334a7: 89 f9                        	movl	%edi, %ecx
+   334a9: c1 e1 05                     	shll	$0x5, %ecx
+   334ac: 48 63 c9                     	movslq	%ecx, %rcx
+   334af: 48 29 c1                     	subq	%rax, %rcx
+   334b2: 48 c1 e1 04                  	shlq	$0x4, %rcx
+   334b6: 48 8d 05 d3 87 fd ff         	leaq	-0x2782d(%rip), %rax    # 0xbc90 <__fe_dfl_mode+0x2db0>
+   334bd: db 2c 01                     	fldt	(%rcx,%rax)
+   334c0: d9 c0                        	fld	%st(0)
+   334c2: db 3e                        	fstpt	(%rsi)
+   334c4: db 2b                        	fldt	(%rbx)
+   334c6: d8 c9                        	fmul	%st(1), %st
+   334c8: db 3b                        	fstpt	(%rbx)
+   334ca: db 2b                        	fldt	(%rbx)
+   334cc: de c1                        	faddp	%st, %st(1)
+   334ce: db 3b                        	fstpt	(%rbx)
+   334d0: db 2b                        	fldt	(%rbx)
+   334d2: db 3c 24                     	fstpt	(%rsp)
+   334d5: 9b                           	wait
+   334d6: e8 55 f9 00 00               	callq	0x42e30 <ldexpl@plt>
+   334db: db 3b                        	fstpt	(%rbx)
+   334dd: 9b                           	wait
+   334de: 80 7d 94 00                  	cmpb	$0x0, -0x6c(%rbp)
+   334e2: 74 4d                        	je	0x33531 <powl+0xaf1>
+   334e4: db 6d a4                     	fldt	-0x5c(%rbp)
+   334e7: db 3c 24                     	fstpt	(%rsp)
+   334ea: 9b                           	wait
+   334eb: bf ff ff ff ff               	movl	$0xffffffff, %edi       # imm = 0xFFFFFFFF
+   334f0: e8 3b f9 00 00               	callq	0x42e30 <ldexpl@plt>
+   334f5: db 3c 24                     	fstpt	(%rsp)
+   334f8: 9b                           	wait
+   334f9: e8 52 fa 00 00               	callq	0x42f50 <floorl@plt>
+   334fe: d9 c0                        	fld	%st(0)
+   33500: 41 db 3e                     	fstpt	(%r14)
+   33503: db 3c 24                     	fstpt	(%rsp)
+   33506: 9b                           	wait
+   33507: bf 01 00 00 00               	movl	$0x1, %edi
+   3350c: e8 1f f9 00 00               	callq	0x42e30 <ldexpl@plt>
+   33511: d9 c0                        	fld	%st(0)
+   33513: 41 db 3e                     	fstpt	(%r14)
+   33516: db 6d a4                     	fldt	-0x5c(%rbp)
+   33519: d9 c9                        	fxch	%st(1)
+   3351b: df e9                        	fucompi	%st(1), %st
+   3351d: dd d8                        	fstp	%st(0)
+   3351f: 9b                           	wait
+   33520: 0f 9b c0                     	setnp	%al
+   33523: 0f 94 c1                     	sete	%cl
+   33526: 84 c1                        	testb	%al, %cl
+   33528: 75 07                        	jne	0x33531 <powl+0xaf1>
+   3352a: db 2b                        	fldt	(%rbx)
+   3352c: d9 e0                        	fchs
+   3352e: db 3b                        	fstpt	(%rbx)
+   33530: 9b                           	wait
+   33531: db 2b                        	fldt	(%rbx)
+   33533: 9b                           	wait
+   33534: e9 e8 f5 ff ff               	jmp	0x32b21 <powl+0xe1>
+   33539: dd d8                        	fstp	%st(0)
+   3353b: 9b                           	wait
+   3353c: e8 3f f3 00 00               	callq	0x42880 <__stack_chk_fail@plt>
+   33541: 66 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 	nopw	%cs:(%rax,%rax)
+   33550: 55                           	pushq	%rbp
+   33551: 48 89 e5                     	movq	%rsp, %rbp
+   33554: 41 57                        	pushq	%r15
+   33556: 41 56                        	pushq	%r14
+   33558: 41 54                        	pushq	%r12
+   3355a: 53                           	pushq	%rbx
+   3355b: 48 83 ec 40                  	subq	$0x40, %rsp
+   3355f: db 6d 10                     	fldt	0x10(%rbp)
+   33562: 9b                           	wait
+   33563: 48 8b 1d de 0c 01 00         	movq	0x10cde(%rip), %rbx     # 0x44248 <memset+0x44248>
+   3356a: 48 8b 03                     	movq	(%rbx), %rax
+   3356d: 48 89 45 d8                  	movq	%rax, -0x28(%rbp)
+   33571: d9 ee                        	fldz
+   33573: df e9                        	fucompi	%st(1), %st
+   33575: 9b                           	wait
+   33576: 0f 9a c0                     	setp	%al
+   33579: 0f 95 c1                     	setne	%cl
+   3357c: 08 c1                        	orb	%al, %cl
+   3357e: 75 32                        	jne	0x335b2 <powl+0xb72>
+   33580: dd d8                        	fstp	%st(0)
+   33582: d9 e8                        	fld1
+   33584: 85 ff                        	testl	%edi, %edi
+   33586: d9 ee                        	fldz
+   33588: d9 ee                        	fldz
+   3358a: 0f 84 fa 00 00 00            	je	0x3368a <powl+0xc4a>
+   33590: dd da                        	fstp	%st(2)
+   33592: dd d8                        	fstp	%st(0)
+   33594: dd d8                        	fstp	%st(0)
+   33596: 9b                           	wait
+   33597: 0f 98 c0                     	sets	%al
+   3359a: 84 c0                        	testb	%al, %al
+   3359c: db 2d ee 30 fd ff            	fldt	-0x2cf12(%rip)          # 0x6690 <memset+0x6690>
+   335a2: d9 ee                        	fldz
+   335a4: db c9                        	fcmovne	%st(1), %st
+   335a6: dd d9                        	fstp	%st(1)
+   335a8: 9b                           	wait
+   335a9: d9 ee                        	fldz
+   335ab: d9 ee                        	fldz
+   335ad: e9 d8 00 00 00               	jmp	0x3368a <powl+0xc4a>
+   335b2: d9 e8                        	fld1
+   335b4: 85 ff                        	testl	%edi, %edi
+   335b6: d9 ee                        	fldz
+   335b8: d9 c9                        	fxch	%st(1)
+   335ba: d9 ca                        	fxch	%st(2)
+   335bc: d9 c9                        	fxch	%st(1)
+   335be: 0f 84 c6 00 00 00            	je	0x3368a <powl+0xc4a>
+   335c4: dd da                        	fstp	%st(2)
+   335c6: dd d9                        	fstp	%st(1)
+   335c8: d9 ee                        	fldz
+   335ca: df f1                        	fcompi	%st(1), %st
+   335cc: 9b                           	wait
+   335cd: 41 0f 97 c6                  	seta	%r14b
+   335d1: d9 c0                        	fld	%st(0)
+   335d3: d9 e0                        	fchs
+   335d5: d9 c9                        	fxch	%st(1)
+   335d7: db d1                        	fcmovnbe	%st(1), %st
+   335d9: dd d9                        	fstp	%st(1)
+   335db: 9b                           	wait
+   335dc: 41 89 ff                     	movl	%edi, %r15d
+   335df: 41 f7 df                     	negl	%r15d
+   335e2: 41 89 fc                     	movl	%edi, %r12d
+   335e5: 44 0f 48 ff                  	cmovsl	%edi, %r15d
+   335e9: d9 c0                        	fld	%st(0)
+   335eb: db 7d bc                     	fstpt	-0x44(%rbp)
+   335ee: db 3c 24                     	fstpt	(%rsp)
+   335f1: 9b                           	wait
+   335f2: 48 8d 7d d4                  	leaq	-0x2c(%rbp), %rdi
+   335f6: e8 25 f8 00 00               	callq	0x42e20 <frexpl@plt>
+   335fb: 8b 45 d4                     	movl	-0x2c(%rbp), %eax
+   335fe: 8d 50 ff                     	leal	-0x1(%rax), %edx
+   33601: 89 d1                        	movl	%edx, %ecx
+   33603: 41 0f af cf                  	imull	%r15d, %ecx
+   33607: 85 d2                        	testl	%edx, %edx
+   33609: 0f 95 c2                     	setne	%dl
+   3360c: 8d 71 bf                     	leal	-0x41(%rcx), %esi
+   3360f: 81 fe 7f ff ff ff            	cmpl	$0xffffff7f, %esi       # imm = 0xFFFFFF7F
+   33615: 40 0f 93 c6                  	setae	%sil
+   33619: 40 84 f2                     	testb	%sil, %dl
+   3361c: 75 3c                        	jne	0x3365a <powl+0xc1a>
+   3361e: db 2d fc 3f fd ff            	fldt	-0x2c004(%rip)          # 0x7620 <memset+0x7620>
+   33624: d9 c1                        	fld	%st(1)
+   33626: d8 e1                        	fsub	%st(1), %st
+   33628: d9 ca                        	fxch	%st(2)
+   3362a: de c1                        	faddp	%st, %st(1)
+   3362c: de f9                        	fdivrp	%st, %st(1)
+   3362e: 9b                           	wait
+   3362f: db 2d 6b 34 fd ff            	fldt	-0x2cb95(%rip)          # 0x6aa0 <memset+0x6aa0>
+   33635: de c9                        	fmulp	%st, %st(1)
+   33637: d8 05 67 4b fd ff            	fadds	-0x2b499(%rip)          # 0x81a4 <memset+0x81a4>
+   3363d: 9b                           	wait
+   3363e: 89 45 d0                     	movl	%eax, -0x30(%rbp)
+   33641: da 45 d0                     	fiaddl	-0x30(%rbp)
+   33644: 9b                           	wait
+   33645: 44 89 e0                     	movl	%r12d, %eax
+   33648: 44 89 65 cc                  	movl	%r12d, -0x34(%rbp)
+   3364c: da 4d cc                     	fimull	-0x34(%rbp)
+   3364f: db 2d cb 32 fd ff            	fldt	-0x2cd35(%rip)          # 0x6920 <memset+0x6920>
+   33655: de c9                        	fmulp	%st, %st(1)
+   33657: 9b                           	wait
+   33658: eb 13                        	jmp	0x3366d <powl+0xc2d>
+   3365a: dd d8                        	fstp	%st(0)
+   3365c: 9b                           	wait
+   3365d: 89 4d c8                     	movl	%ecx, -0x38(%rbp)
+   33660: db 2d ba 32 fd ff            	fldt	-0x2cd46(%rip)          # 0x6920 <memset+0x6920>
+   33666: da 4d c8                     	fimull	-0x38(%rbp)
+   33669: 9b                           	wait
+   3366a: 44 89 e0                     	movl	%r12d, %eax
+   3366d: d9 05 6d 4b fd ff            	flds	-0x2b493(%rip)          # 0x81e0 <memset+0x81e0>
+   33673: db 2d 37 3c fd ff            	fldt	-0x2c3c9(%rip)          # 0x72b0 <memset+0x72b0>
+   33679: d9 ca                        	fxch	%st(2)
+   3367b: db f2                        	fcomi	%st(2), %st
+   3367d: dd da                        	fstp	%st(2)
+   3367f: db 6d bc                     	fldt	-0x44(%rbp)
+   33682: d9 c9                        	fxch	%st(1)
+   33684: d9 ca                        	fxch	%st(2)
+   33686: d9 c9                        	fxch	%st(1)
+   33688: 76 1f                        	jbe	0x336a9 <powl+0xc69>
+   3368a: dd d9                        	fstp	%st(1)
+   3368c: dd d8                        	fstp	%st(0)
+   3368e: 9b                           	wait
+   3368f: 48 8b 03                     	movq	(%rbx), %rax
+   33692: 48 3b 45 d8                  	cmpq	-0x28(%rbp), %rax
+   33696: 0f 85 c0 00 00 00            	jne	0x3375c <powl+0xd1c>
+   3369c: 48 83 c4 40                  	addq	$0x40, %rsp
+   336a0: 5b                           	popq	%rbx
+   336a1: 41 5c                        	popq	%r12
+   336a3: 41 5e                        	popq	%r14
+   336a5: 41 5f                        	popq	%r15
+   336a7: 5d                           	popq	%rbp
+   336a8: c3                           	retq
+   336a9: dd da                        	fstp	%st(2)
+   336ab: db 2d 1f 3b fd ff            	fldt	-0x2c4e1(%rip)          # 0x71d0 <memset+0x71d0>
+   336b1: df f1                        	fcompi	%st(1), %st
+   336b3: 9b                           	wait
+   336b4: 76 21                        	jbe	0x336d7 <powl+0xc97>
+   336b6: dd d8                        	fstp	%st(0)
+   336b8: dd d8                        	fstp	%st(0)
+   336ba: 48 8d 3d 5f 0b 01 00         	leaq	0x10b5f(%rip), %rdi     # 0x44220 <memset+0x44220>
+   336c1: e8 8a f6 00 00               	callq	0x42d50 <__tls_get_addr@plt>
+   336c6: db a8 00 00 00 00            	fldt	(%rax)
+   336cc: db a8 00 00 00 00            	fldt	(%rax)
+   336d2: de c9                        	fmulp	%st, %st(1)
+   336d4: 9b                           	wait
+   336d5: eb b8                        	jmp	0x3368f <powl+0xc4f>
+   336d7: db 2d 03 3b fd ff            	fldt	-0x2c4fd(%rip)          # 0x71e0 <memset+0x71e0>
+   336dd: df f1                        	fcompi	%st(1), %st
+   336df: dd d8                        	fstp	%st(0)
+   336e1: 9b                           	wait
+   336e2: 76 0f                        	jbe	0x336f3 <powl+0xcb3>
+   336e4: f7 d0                        	notl	%eax
+   336e6: c1 f8 1f                     	sarl	$0x1f, %eax
+   336e9: 83 c8 01                     	orl	$0x1, %eax
+   336ec: d9 e8                        	fld1
+   336ee: de f1                        	fdivp	%st, %st(1)
+   336f0: 9b                           	wait
+   336f1: eb 06                        	jmp	0x336f9 <powl+0xcb9>
+   336f3: c1 f8 1f                     	sarl	$0x1f, %eax
+   336f6: 83 c8 01                     	orl	$0x1, %eax
+   336f9: 41 f6 c7 01                  	testb	$0x1, %r15b
+   336fd: d9 e8                        	fld1
+   336ff: db c9                        	fcmovne	%st(1), %st
+   33701: 45 20 fe                     	andb	%r15b, %r14b
+   33704: 41 83 ff 02                  	cmpl	$0x2, %r15d
+   33708: 73 26                        	jae	0x33730 <powl+0xcf0>
+   3370a: dd d9                        	fstp	%st(1)
+   3370c: d9 ee                        	fldz
+   3370e: dd d8                        	fstp	%st(0)
+   33710: d9 c0                        	fld	%st(0)
+   33712: d9 e0                        	fchs
+   33714: 45 84 f6                     	testb	%r14b, %r14b
+   33717: d9 c9                        	fxch	%st(1)
+   33719: db c9                        	fcmovne	%st(1), %st
+   3371b: dd d9                        	fstp	%st(1)
+   3371d: 9b                           	wait
+   3371e: 85 c0                        	testl	%eax, %eax
+   33720: 0f 89 83 fe ff ff            	jns	0x335a9 <powl+0xb69>
+   33726: d9 e8                        	fld1
+   33728: de f1                        	fdivp	%st, %st(1)
+   3372a: 9b                           	wait
+   3372b: e9 5f ff ff ff               	jmp	0x3368f <powl+0xc4f>
+   33730: d9 c9                        	fxch	%st(1)
+   33732: eb 1a                        	jmp	0x3374e <powl+0xd0e>
+   33734: 66 66 66 2e 0f 1f 84 00 00 00 00 00  	nopw	%cs:(%rax,%rax)
+   33740: 44 89 f9                     	movl	%r15d, %ecx
+   33743: d1 e9                        	shrl	%ecx
+   33745: 41 83 ff 03                  	cmpl	$0x3, %r15d
+   33749: 41 89 cf                     	movl	%ecx, %r15d
+   3374c: 76 c0                        	jbe	0x3370e <powl+0xcce>
+   3374e: dc c8                        	fmul	%st, %st(0)
+   33750: 9b                           	wait
+   33751: 41 f6 c7 02                  	testb	$0x2, %r15b
+   33755: 74 e9                        	je	0x33740 <powl+0xd00>
+   33757: dc c9                        	fmul	%st, %st(1)
+   33759: 9b                           	wait
+   3375a: eb e4                        	jmp	0x33740 <powl+0xd00>
+   3375c: dd d8                        	fstp	%st(0)
+   3375e: 9b                           	wait
+   3375f: e8 1c f1 00 00               	callq	0x42880 <__stack_chk_fail@plt>
+   33764: 66 66 66 2e 0f 1f 84 00 00 00 00 00  	nopw	%cs:(%rax,%rax)
+   33770: 55                           	pushq	%rbp
+   33771: 48 89 e5                     	movq	%rsp, %rbp
+   33774: 48 83 ec 10                  	subq	$0x10, %rsp
+   33778: db 6d 10                     	fldt	0x10(%rbp)
+   3377b: db 3c 24                     	fstpt	(%rsp)
+   3377e: 9b                           	wait
+   3377f: bf 05 00 00 00               	movl	$0x5, %edi
+   33784: e8 a7 f6 00 00               	callq	0x42e30 <ldexpl@plt>
+   33789: db 3c 24                     	fstpt	(%rsp)
+   3378c: 9b                           	wait
+   3378d: e8 be f7 00 00               	callq	0x42f50 <floorl@plt>
+   33792: db 3c 24                     	fstpt	(%rsp)
+   33795: 9b                           	wait
+   33796: bf fb ff ff ff               	movl	$0xfffffffb, %edi       # imm = 0xFFFFFFFB
+   3379b: e8 90 f6 00 00               	callq	0x42e30 <ldexpl@plt>
+   337a0: 48 83 c4 10                  	addq	$0x10, %rsp
+   337a4: 5d                           	popq	%rbp
+   337a5: c3                           	retq
+   337a6: cc                           	int3
+   337a7: cc                           	int3
+   337a8: cc                           	int3
+   337a9: cc                           	int3
+   337aa: cc                           	int3
+   337ab: cc                           	int3
+   337ac: cc                           	int3
+   337ad: cc                           	int3
+   337ae: cc                           	int3
+   337af: cc                           	int3

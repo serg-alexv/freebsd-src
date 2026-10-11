@@ -1,0 +1,21 @@
+Using seed 2427
+Using xmin=0x0p+0l xmax=-0xf.fffffffffffffffp+16380l ymin=0x0p+0l ymax=-0xf.fffffffffffffffp+16380l
+Using 1 thread(s)
+NEW pow 0 16 0x3.439e117f80a71554p-13512l,-0xe.7cc0e93023eb04p-16l [4.94e+02] 493.224 493.2234473329106
+libm gives 0x7.ed0675f94c4d9d6p+0l
+mpfr gives 0x7.ed0675f94c4dacc8p+0l
+        0.13 real         6.86 user         0.45 sys
+      4560  maximum resident set size
+         0  average shared memory size
+         0  average unshared data size
+         2  average unshared stack size
+       545  page reclaims
+         0  page faults
+         0  swaps
+         0  block input operations
+         3  block output operations
+         1  messages sent
+         1  messages received
+         1  signals received
+         7  voluntary context switches
+         6  involuntary context switches

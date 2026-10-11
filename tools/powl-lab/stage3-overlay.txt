@@ -1,0 +1,81 @@
+binding=/root/libpowl_stage3.so
+general-negative-odd-overflow mode=nearest got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+general-negative-odd-overflow mode=downward got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+general-negative-odd-overflow mode=upward got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-negative-odd-overflow mode=towardzero got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-negative-even-overflow mode=nearest got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+general-negative-even-overflow mode=downward got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-negative-even-overflow mode=upward got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+general-negative-even-overflow mode=towardzero got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-negative-odd-underflow mode=nearest got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-negative-odd-underflow mode=downward got=-0x1p-16445 expected=-0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+general-negative-odd-underflow mode=upward got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-negative-odd-underflow mode=towardzero got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-negative-even-underflow mode=nearest got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-negative-even-underflow mode=downward got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-negative-even-underflow mode=upward got=0x1p-16445 expected=0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+general-negative-even-underflow mode=towardzero got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+early-negative-odd-overflow mode=nearest got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+early-negative-odd-overflow mode=downward got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+early-negative-odd-overflow mode=upward got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+early-negative-odd-overflow mode=towardzero got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+early-negative-odd-underflow mode=nearest got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+early-negative-odd-underflow mode=downward got=-0x1p-16445 expected=-0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+early-negative-odd-underflow mode=upward got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+early-negative-odd-underflow mode=towardzero got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-positive-overflow mode=nearest got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+general-positive-overflow mode=downward got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-positive-overflow mode=upward got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+general-positive-overflow mode=towardzero got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+general-positive-underflow mode=nearest got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-positive-underflow mode=downward got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+general-positive-underflow mode=upward got=0x1p-16445 expected=0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+general-positive-underflow mode=towardzero got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-odd-overflow mode=nearest got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+integer-negative-odd-overflow mode=downward got=-inf expected=-inf flags=0x28 expected_flags=0x28 PASS
+integer-negative-odd-overflow mode=upward got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-negative-odd-overflow mode=towardzero got=-0x1.fffffffffffffffep+16383 expected=-0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-negative-odd-underflow mode=nearest got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-odd-underflow mode=downward got=-0x1p-16445 expected=-0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+integer-negative-odd-underflow mode=upward got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-odd-underflow mode=towardzero got=-0x0p+0 expected=-0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-even-overflow mode=nearest got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-negative-even-overflow mode=downward got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-negative-even-overflow mode=upward got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-negative-even-overflow mode=towardzero got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-negative-even-underflow mode=nearest got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-even-underflow mode=downward got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-negative-even-underflow mode=upward got=0x1p-16445 expected=0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+integer-negative-even-underflow mode=towardzero got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-odd-overflow mode=nearest got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-positive-odd-overflow mode=downward got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-positive-odd-overflow mode=upward got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-positive-odd-overflow mode=towardzero got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-positive-odd-underflow mode=nearest got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-odd-underflow mode=downward got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-odd-underflow mode=upward got=0x1p-16445 expected=0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+integer-positive-odd-underflow mode=towardzero got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-even-overflow mode=nearest got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-positive-even-overflow mode=downward got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-positive-even-overflow mode=upward got=inf expected=inf flags=0x28 expected_flags=0x28 PASS
+integer-positive-even-overflow mode=towardzero got=0x1.fffffffffffffffep+16383 expected=0x1.fffffffffffffffep+16383 flags=0x28 expected_flags=0x28 PASS
+integer-positive-even-underflow mode=nearest got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-even-underflow mode=downward got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+integer-positive-even-underflow mode=upward got=0x1p-16445 expected=0x1p-16445 flags=0x30 expected_flags=0x30 PASS
+integer-positive-even-underflow mode=towardzero got=0x0p+0 expected=0x0p+0 flags=0x30 expected_flags=0x30 PASS
+PASS completed=64
+        0.01 real         0.00 user         0.00 sys
+      3176  maximum resident set size
+         4  average shared memory size
+         4  average unshared data size
+       128  average unshared stack size
+       249  page reclaims
+         0  page faults
+         0  swaps
+         0  block input operations
+         0  block output operations
+         1  messages sent
+         1  messages received
+         1  signals received
+         5  voluntary context switches
+         0  involuntary context switches

@@ -1,0 +1,732 @@
+
+/root/libpowl_stage3.so:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+0000000000001d40 <powl>:
+    1d40: 55                           	pushq	%rbp
+    1d41: 48 89 e5                     	movq	%rsp, %rbp
+    1d44: 41 57                        	pushq	%r15
+    1d46: 41 56                        	pushq	%r14
+    1d48: 41 55                        	pushq	%r13
+    1d4a: 41 54                        	pushq	%r12
+    1d4c: 53                           	pushq	%rbx
+    1d4d: 48 81 ec 98 00 00 00         	subq	$0x98, %rsp
+    1d54: db 6d 20                     	fldt	0x20(%rbp)
+    1d57: db 6d 10                     	fldt	0x10(%rbp)
+    1d5a: d9 ee                        	fldz
+    1d5c: df ea                        	fucompi	%st(2), %st
+    1d5e: 0f 9b c0                     	setnp	%al
+    1d61: 0f 94 c1                     	sete	%cl
+    1d64: 20 c1                        	andb	%al, %cl
+    1d66: d9 e8                        	fld1
+    1d68: db e9                        	fucomi	%st(1), %st
+    1d6a: 0f 9b c0                     	setnp	%al
+    1d6d: 0f 94 c2                     	sete	%dl
+    1d70: 20 c2                        	andb	%al, %dl
+    1d72: 08 ca                        	orb	%cl, %dl
+    1d74: d9 ee                        	fldz
+    1d76: 75 6a                        	jne	0x1de2 <powl+0xa2>
+    1d78: dd d9                        	fstp	%st(1)
+    1d7a: dd d8                        	fstp	%st(0)
+    1d7c: db e8                        	fucomi	%st(0), %st
+    1d7e: 0f 8a 2a 08 00 00            	jp	0x25ae <powl+0x86e>
+    1d84: d9 c9                        	fxch	%st(1)
+    1d86: db e8                        	fucomi	%st(0), %st
+    1d88: 0f 8a 27 08 00 00            	jp	0x25b5 <powl+0x875>
+    1d8e: d9 e8                        	fld1
+    1d90: d9 c9                        	fxch	%st(1)
+    1d92: db e9                        	fucomi	%st(1), %st
+    1d94: dd d9                        	fstp	%st(1)
+    1d96: 75 12                        	jne	0x1daa <powl+0x6a>
+    1d98: 7a 10                        	jp	0x1daa <powl+0x6a>
+    1d9a: dd d8                        	fstp	%st(0)
+    1d9c: d9 ee                        	fldz
+    1d9e: d9 ee                        	fldz
+    1da0: d9 ee                        	fldz
+    1da2: d9 c9                        	fxch	%st(1)
+    1da4: d9 cb                        	fxch	%st(3)
+    1da6: d9 c9                        	fxch	%st(1)
+    1da8: eb 38                        	jmp	0x1de2 <powl+0xa2>
+    1daa: d9 c0                        	fld	%st(0)
+    1dac: db 3c 24                     	fstpt	(%rsp)
+    1daf: d9 c9                        	fxch	%st(1)
+    1db1: db 7d a4                     	fstpt	-0x5c(%rbp)
+    1db4: db 7d b0                     	fstpt	-0x50(%rbp)
+    1db7: e8 e4 0a 00 00               	callq	0x28a0 <__isfinitel@plt>
+    1dbc: db 6d b0                     	fldt	-0x50(%rbp)
+    1dbf: db 6d a4                     	fldt	-0x5c(%rbp)
+    1dc2: d9 e8                        	fld1
+    1dc4: d9 c0                        	fld	%st(0)
+    1dc6: d9 e0                        	fchs
+    1dc8: d9 ca                        	fxch	%st(2)
+    1dca: db ea                        	fucomi	%st(2), %st
+    1dcc: dd da                        	fstp	%st(2)
+    1dce: d9 ee                        	fldz
+    1dd0: d9 ca                        	fxch	%st(2)
+    1dd2: d9 cb                        	fxch	%st(3)
+    1dd4: 75 24                        	jne	0x1dfa <powl+0xba>
+    1dd6: 7a 22                        	jp	0x1dfa <powl+0xba>
+    1dd8: dd da                        	fstp	%st(2)
+    1dda: 85 c0                        	testl	%eax, %eax
+    1ddc: d9 ee                        	fldz
+    1dde: d9 ca                        	fxch	%st(2)
+    1de0: 75 18                        	jne	0x1dfa <powl+0xba>
+    1de2: dd da                        	fstp	%st(2)
+    1de4: dd da                        	fstp	%st(2)
+    1de6: dd d8                        	fstp	%st(0)
+    1de8: 48 81 c4 98 00 00 00         	addq	$0x98, %rsp
+    1def: 5b                           	popq	%rbx
+    1df0: 41 5c                        	popq	%r12
+    1df2: 41 5d                        	popq	%r13
+    1df4: 41 5e                        	popq	%r14
+    1df6: 41 5f                        	popq	%r15
+    1df8: 5d                           	popq	%rbp
+    1df9: c3                           	retq
+    1dfa: dd d9                        	fstp	%st(1)
+    1dfc: dd d9                        	fstp	%st(1)
+    1dfe: db 2d 5c e8 ff ff            	fldt	-0x17a4(%rip)           # 0x660 <ldexpl+0x660>
+    1e04: d9 c9                        	fxch	%st(1)
+    1e06: db e9                        	fucomi	%st(1), %st
+    1e08: dd d9                        	fstp	%st(1)
+    1e0a: d9 ee                        	fldz
+    1e0c: d9 ee                        	fldz
+    1e0e: d9 ca                        	fxch	%st(2)
+    1e10: 73 54                        	jae	0x1e66 <powl+0x126>
+    1e12: dd d9                        	fstp	%st(1)
+    1e14: dd d9                        	fstp	%st(1)
+    1e16: db 2d e4 e8 ff ff            	fldt	-0x171c(%rip)           # 0x700 <ldexpl+0x700>
+    1e1c: df e9                        	fucompi	%st(1), %st
+    1e1e: d9 ee                        	fldz
+    1e20: d9 ee                        	fldz
+    1e22: d9 ca                        	fxch	%st(2)
+    1e24: 0f 83 bb 00 00 00            	jae	0x1ee5 <powl+0x1a5>
+    1e2a: dd d9                        	fstp	%st(1)
+    1e2c: dd d9                        	fstp	%st(1)
+    1e2e: db 2d 2c e8 ff ff            	fldt	-0x17d4(%rip)           # 0x660 <ldexpl+0x660>
+    1e34: d9 ca                        	fxch	%st(2)
+    1e36: df ea                        	fucompi	%st(2), %st
+    1e38: dd d9                        	fstp	%st(1)
+    1e3a: 0f 83 24 01 00 00            	jae	0x1f64 <powl+0x224>
+    1e40: db 3c 24                     	fstpt	(%rsp)
+    1e43: e8 68 0a 00 00               	callq	0x28b0 <floorl@plt>
+    1e48: db 6d b0                     	fldt	-0x50(%rbp)
+    1e4b: d9 c1                        	fld	%st(1)
+    1e4d: b3 01                        	movb	$0x1, %bl
+    1e4f: d9 ca                        	fxch	%st(2)
+    1e51: df e9                        	fucompi	%st(1), %st
+    1e53: 75 06                        	jne	0x1e5b <powl+0x11b>
+    1e55: 0f 8b 20 01 00 00            	jnp	0x1f7b <powl+0x23b>
+    1e5b: 45 31 ff                     	xorl	%r15d, %r15d
+    1e5e: db 6d a4                     	fldt	-0x5c(%rbp)
+    1e61: e9 57 01 00 00               	jmp	0x1fbd <powl+0x27d>
+    1e66: dd d9                        	fstp	%st(1)
+    1e68: dd d9                        	fstp	%st(1)
+    1e6a: d9 05 d4 e9 ff ff            	flds	-0x162c(%rip)           # 0x844 <ldexpl+0x844>
+    1e70: d9 e8                        	fld1
+    1e72: d9 cb                        	fxch	%st(3)
+    1e74: db eb                        	fucomi	%st(3), %st
+    1e76: dd db                        	fstp	%st(3)
+    1e78: d9 ee                        	fldz
+    1e7a: d9 ca                        	fxch	%st(2)
+    1e7c: 0f 87 60 ff ff ff            	ja	0x1de2 <powl+0xa2>
+    1e82: dd d9                        	fstp	%st(1)
+    1e84: dd d9                        	fstp	%st(1)
+    1e86: d9 ee                        	fldz
+    1e88: d9 ca                        	fxch	%st(2)
+    1e8a: db ea                        	fucomi	%st(2), %st
+    1e8c: 0f 97 c0                     	seta	%al
+    1e8f: d9 e8                        	fld1
+    1e91: df e9                        	fucompi	%st(1), %st
+    1e93: 0f 97 c1                     	seta	%cl
+    1e96: 84 c8                        	testb	%cl, %al
+    1e98: d9 ee                        	fldz
+    1e9a: d9 c9                        	fxch	%st(1)
+    1e9c: d9 cb                        	fxch	%st(3)
+    1e9e: d9 c9                        	fxch	%st(1)
+    1ea0: d9 ca                        	fxch	%st(2)
+    1ea2: 0f 85 3a ff ff ff            	jne	0x1de2 <powl+0xa2>
+    1ea8: dd d9                        	fstp	%st(1)
+    1eaa: dd d9                        	fstp	%st(1)
+    1eac: d9 05 92 e9 ff ff            	flds	-0x166e(%rip)           # 0x844 <ldexpl+0x844>
+    1eb2: d9 e8                        	fld1
+    1eb4: d9 e0                        	fchs
+    1eb6: db eb                        	fucomi	%st(3), %st
+    1eb8: d9 ca                        	fxch	%st(2)
+    1eba: 0f 87 22 ff ff ff            	ja	0x1de2 <powl+0xa2>
+    1ec0: dd d9                        	fstp	%st(1)
+    1ec2: d9 ca                        	fxch	%st(2)
+    1ec4: db e9                        	fucomi	%st(1), %st
+    1ec6: dd d9                        	fstp	%st(1)
+    1ec8: 0f 97 c0                     	seta	%al
+    1ecb: d9 ee                        	fldz
+    1ecd: db e9                        	fucomi	%st(1), %st
+    1ecf: 0f 97 c1                     	seta	%cl
+    1ed2: 84 c8                        	testb	%cl, %al
+    1ed4: d9 ee                        	fldz
+    1ed6: d9 ca                        	fxch	%st(2)
+    1ed8: d9 cb                        	fxch	%st(3)
+    1eda: 0f 85 02 ff ff ff            	jne	0x1de2 <powl+0xa2>
+    1ee0: e9 2d ff ff ff               	jmp	0x1e12 <powl+0xd2>
+    1ee5: dd d9                        	fstp	%st(1)
+    1ee7: dd d9                        	fstp	%st(1)
+    1ee9: d9 ee                        	fldz
+    1eeb: d9 e8                        	fld1
+    1eed: d9 cb                        	fxch	%st(3)
+    1eef: db eb                        	fucomi	%st(3), %st
+    1ef1: dd db                        	fstp	%st(3)
+    1ef3: d9 ee                        	fldz
+    1ef5: d9 ca                        	fxch	%st(2)
+    1ef7: 0f 87 e5 fe ff ff            	ja	0x1de2 <powl+0xa2>
+    1efd: dd d9                        	fstp	%st(1)
+    1eff: dd d9                        	fstp	%st(1)
+    1f01: d9 ee                        	fldz
+    1f03: d9 ca                        	fxch	%st(2)
+    1f05: db ea                        	fucomi	%st(2), %st
+    1f07: dd da                        	fstp	%st(2)
+    1f09: 0f 97 c0                     	seta	%al
+    1f0c: d9 e8                        	fld1
+    1f0e: df ea                        	fucompi	%st(2), %st
+    1f10: 0f 97 c1                     	seta	%cl
+    1f13: d9 05 2b e9 ff ff            	flds	-0x16d5(%rip)           # 0x844 <ldexpl+0x844>
+    1f19: 84 c8                        	testb	%cl, %al
+    1f1b: d9 ee                        	fldz
+    1f1d: d9 ca                        	fxch	%st(2)
+    1f1f: 0f 85 bd fe ff ff            	jne	0x1de2 <powl+0xa2>
+    1f25: dd d9                        	fstp	%st(1)
+    1f27: dd d9                        	fstp	%st(1)
+    1f29: d9 ee                        	fldz
+    1f2b: d9 e8                        	fld1
+    1f2d: d9 e0                        	fchs
+    1f2f: db eb                        	fucomi	%st(3), %st
+    1f31: d9 ca                        	fxch	%st(2)
+    1f33: 0f 87 a9 fe ff ff            	ja	0x1de2 <powl+0xa2>
+    1f39: dd d9                        	fstp	%st(1)
+    1f3b: d9 ca                        	fxch	%st(2)
+    1f3d: db e9                        	fucomi	%st(1), %st
+    1f3f: dd d9                        	fstp	%st(1)
+    1f41: 0f 97 c0                     	seta	%al
+    1f44: d9 ee                        	fldz
+    1f46: df e9                        	fucompi	%st(1), %st
+    1f48: 0f 97 c1                     	seta	%cl
+    1f4b: d9 05 f3 e8 ff ff            	flds	-0x170d(%rip)           # 0x844 <ldexpl+0x844>
+    1f51: 84 c8                        	testb	%cl, %al
+    1f53: d9 ee                        	fldz
+    1f55: d9 ca                        	fxch	%st(2)
+    1f57: d9 cb                        	fxch	%st(3)
+    1f59: 0f 85 83 fe ff ff            	jne	0x1de2 <powl+0xa2>
+    1f5f: e9 c6 fe ff ff               	jmp	0x1e2a <powl+0xea>
+    1f64: d9 ee                        	fldz
+    1f66: d9 c9                        	fxch	%st(1)
+    1f68: df e9                        	fucompi	%st(1), %st
+    1f6a: d9 05 d4 e8 ff ff            	flds	-0x172c(%rip)           # 0x844 <ldexpl+0x844>
+    1f70: d9 c9                        	fxch	%st(1)
+    1f72: db d1                        	fcmovnbe	%st(1), %st
+    1f74: dd d9                        	fstp	%st(1)
+    1f76: e9 21 fe ff ff               	jmp	0x1d9c <powl+0x5c>
+    1f7b: d9 e1                        	fabs
+    1f7d: d9 05 b9 e8 ff ff            	flds	-0x1747(%rip)           # 0x83c <ldexpl+0x83c>
+    1f83: d9 c0                        	fld	%st(0)
+    1f85: db 7d bc                     	fstpt	-0x44(%rbp)
+    1f88: de c9                        	fmulp	%st, %st(1)
+    1f8a: db 3c 24                     	fstpt	(%rsp)
+    1f8d: db 7d c8                     	fstpt	-0x38(%rbp)
+    1f90: e8 1b 09 00 00               	callq	0x28b0 <floorl@plt>
+    1f95: db 6d c8                     	fldt	-0x38(%rbp)
+    1f98: d9 c0                        	fld	%st(0)
+    1f9a: d9 e1                        	fabs
+    1f9c: db 6d bc                     	fldt	-0x44(%rbp)
+    1f9f: de c9                        	fmulp	%st, %st(1)
+    1fa1: d9 ca                        	fxch	%st(2)
+    1fa3: df ea                        	fucompi	%st(2), %st
+    1fa5: dd d9                        	fstp	%st(1)
+    1fa7: 75 02                        	jne	0x1fab <powl+0x26b>
+    1fa9: 7b 07                        	jnp	0x1fb2 <powl+0x272>
+    1fab: 41 b7 01                     	movb	$0x1, %r15b
+    1fae: 31 db                        	xorl	%ebx, %ebx
+    1fb0: eb 03                        	jmp	0x1fb5 <powl+0x275>
+    1fb2: 45 31 ff                     	xorl	%r15d, %r15d
+    1fb5: db 6d a4                     	fldt	-0x5c(%rbp)
+    1fb8: db 6d b0                     	fldt	-0x50(%rbp)
+    1fbb: d9 c9                        	fxch	%st(1)
+    1fbd: db 2d 3d e7 ff ff            	fldt	-0x18c3(%rip)           # 0x700 <ldexpl+0x700>
+    1fc3: df e9                        	fucompi	%st(1), %st
+    1fc5: 73 52                        	jae	0x2019 <powl+0x2d9>
+    1fc7: d9 ee                        	fldz
+    1fc9: db e9                        	fucomi	%st(1), %st
+    1fcb: 72 6f                        	jb	0x203c <powl+0x2fc>
+    1fcd: d9 c9                        	fxch	%st(1)
+    1fcf: db e9                        	fucomi	%st(1), %st
+    1fd1: dd d9                        	fstp	%st(1)
+    1fd3: 0f 85 98 00 00 00            	jne	0x2071 <powl+0x331>
+    1fd9: 0f 8a 92 00 00 00            	jp	0x2071 <powl+0x331>
+    1fdf: dd da                        	fstp	%st(2)
+    1fe1: d9 ee                        	fldz
+    1fe3: db e9                        	fucomi	%st(1), %st
+    1fe5: 0f 86 c7 03 00 00            	jbe	0x23b2 <powl+0x672>
+    1feb: dd d8                        	fstp	%st(0)
+    1fed: dd d8                        	fstp	%st(0)
+    1fef: db 3c 24                     	fstpt	(%rsp)
+    1ff2: e8 c9 08 00 00               	callq	0x28c0 <__signbitl@plt>
+    1ff7: 31 c9                        	xorl	%ecx, %ecx
+    1ff9: 85 c0                        	testl	%eax, %eax
+    1ffb: 0f 95 c1                     	setne	%cl
+    1ffe: c1 e1 04                     	shll	$0x4, %ecx
+    2001: 48 8d 05 48 e8 ff ff         	leaq	-0x17b8(%rip), %rax     # 0x850 <ldexpl+0x850>
+    2008: db 2c 01                     	fldt	(%rcx,%rax)
+    200b: 45 84 ff                     	testb	%r15b, %r15b
+    200e: d9 05 30 e8 ff ff            	flds	-0x17d0(%rip)           # 0x844 <ldexpl+0x844>
+    2014: e9 ce 03 00 00               	jmp	0x23e7 <powl+0x6a7>
+    2019: d9 ee                        	fldz
+    201b: d9 ca                        	fxch	%st(2)
+    201d: db ea                        	fucomi	%st(2), %st
+    201f: 76 33                        	jbe	0x2054 <powl+0x314>
+    2021: dd da                        	fstp	%st(2)
+    2023: dd d8                        	fstp	%st(0)
+    2025: dd d8                        	fstp	%st(0)
+    2027: dd d8                        	fstp	%st(0)
+    2029: 84 db                        	testb	%bl, %bl
+    202b: d9 05 13 e8 ff ff            	flds	-0x17ed(%rip)           # 0x844 <ldexpl+0x844>
+    2031: d9 05 f9 e7 ff ff            	flds	-0x1807(%rip)           # 0x830 <ldexpl+0x830>
+    2037: e9 ab 03 00 00               	jmp	0x23e7 <powl+0x6a7>
+    203c: dd d8                        	fstp	%st(0)
+    203e: d9 ca                        	fxch	%st(2)
+    2040: df e9                        	fucompi	%st(1), %st
+    2042: dd d8                        	fstp	%st(0)
+    2044: d9 ee                        	fldz
+    2046: 0f 85 9c 00 00 00            	jne	0x20e8 <powl+0x3a8>
+    204c: 0f 8a 96 00 00 00            	jp	0x20e8 <powl+0x3a8>
+    2052: eb 34                        	jmp	0x2088 <powl+0x348>
+    2054: d9 ca                        	fxch	%st(2)
+    2056: df ea                        	fucompi	%st(2), %st
+    2058: 0f 86 69 ff ff ff            	jbe	0x1fc7 <powl+0x287>
+    205e: dd d8                        	fstp	%st(0)
+    2060: dd d8                        	fstp	%st(0)
+    2062: dd d8                        	fstp	%st(0)
+    2064: 84 db                        	testb	%bl, %bl
+    2066: d9 ee                        	fldz
+    2068: d9 c0                        	fld	%st(0)
+    206a: d9 e0                        	fchs
+    206c: e9 76 03 00 00               	jmp	0x23e7 <powl+0x6a7>
+    2071: d9 ca                        	fxch	%st(2)
+    2073: df e9                        	fucompi	%st(1), %st
+    2075: dd d8                        	fstp	%st(0)
+    2077: d9 ee                        	fldz
+    2079: 75 02                        	jne	0x207d <powl+0x33d>
+    207b: 7b 0b                        	jnp	0x2088 <powl+0x348>
+    207d: dd d8                        	fstp	%st(0)
+    207f: dc e0                        	fsub	%st, %st(0)
+    2081: dc f0                        	fdiv	%st, %st(0)
+    2083: e9 14 fd ff ff               	jmp	0x1d9c <powl+0x5c>
+    2088: dd d8                        	fstp	%st(0)
+    208a: db 3c 24                     	fstpt	(%rsp)
+    208d: e8 1e 08 00 00               	callq	0x28b0 <floorl@plt>
+    2092: db 6d b0                     	fldt	-0x50(%rbp)
+    2095: db 6d a4                     	fldt	-0x5c(%rbp)
+    2098: d9 ca                        	fxch	%st(2)
+    209a: df ea                        	fucompi	%st(2), %st
+    209c: 0f 9a c0                     	setp	%al
+    209f: 0f 95 c1                     	setne	%cl
+    20a2: 08 c1                        	orb	%al, %cl
+    20a4: d9 c0                        	fld	%st(0)
+    20a6: d9 e1                        	fabs
+    20a8: d9 05 9a e7 ff ff            	flds	-0x1866(%rip)           # 0x848 <ldexpl+0x848>
+    20ae: df e9                        	fucompi	%st(1), %st
+    20b0: dd d8                        	fstp	%st(0)
+    20b2: 0f 96 c0                     	setbe	%al
+    20b5: 08 c8                        	orb	%cl, %al
+    20b7: 75 2f                        	jne	0x20e8 <powl+0x3a8>
+    20b9: d9 7d d4                     	fnstcw	-0x2c(%rbp)
+    20bc: 0f b7 45 d4                  	movzwl	-0x2c(%rbp), %eax
+    20c0: 0d 00 0c 00 00               	orl	$0xc00, %eax            # imm = 0xC00
+    20c5: 66 89 45 a0                  	movw	%ax, -0x60(%rbp)
+    20c9: d9 6d a0                     	fldcw	-0x60(%rbp)
+    20cc: db 9d 7c ff ff ff            	fistpl	-0x84(%rbp)
+    20d2: d9 6d d4                     	fldcw	-0x2c(%rbp)
+    20d5: 8b bd 7c ff ff ff            	movl	-0x84(%rbp), %edi
+    20db: db 3c 24                     	fstpt	(%rsp)
+    20de: e8 dd 04 00 00               	callq	0x25c0 <powil>
+    20e3: e9 00 fd ff ff               	jmp	0x1de8 <powl+0xa8>
+    20e8: dd d8                        	fstp	%st(0)
+    20ea: d9 ee                        	fldz
+    20ec: df e9                        	fucompi	%st(1), %st
+    20ee: d9 c0                        	fld	%st(0)
+    20f0: d9 e1                        	fabs
+    20f2: d9 c9                        	fxch	%st(1)
+    20f4: db c1                        	fcmovnb	%st(1), %st
+    20f6: dd d9                        	fstp	%st(1)
+    20f8: d9 c0                        	fld	%st(0)
+    20fa: db 7d c8                     	fstpt	-0x38(%rbp)
+    20fd: db 3c 24                     	fstpt	(%rsp)
+    2100: e8 cb 07 00 00               	callq	0x28d0 <ilogbl@plt>
+    2105: 89 c3                        	movl	%eax, %ebx
+    2107: db 6d b0                     	fldt	-0x50(%rbp)
+    210a: db 3c 24                     	fstpt	(%rsp)
+    210d: e8 be 07 00 00               	callq	0x28d0 <ilogbl@plt>
+    2112: 83 f8 0f                     	cmpl	$0xf, %eax
+    2115: 0f 9d c0                     	setge	%al
+    2118: 8d 4b ff                     	leal	-0x1(%rbx), %ecx
+    211b: 83 f9 fe                     	cmpl	$-0x2, %ecx
+    211e: 0f 92 c1                     	setb	%cl
+    2121: 20 c1                        	andb	%al, %cl
+    2123: 80 f9 01                     	cmpb	$0x1, %cl
+    2126: 75 21                        	jne	0x2149 <powl+0x409>
+    2128: db 6d b0                     	fldt	-0x50(%rbp)
+    212b: db 3c 24                     	fstpt	(%rsp)
+    212e: e8 8d 07 00 00               	callq	0x28c0 <__signbitl@plt>
+    2133: c1 eb 1f                     	shrl	$0x1f, %ebx
+    2136: 39 d8                        	cmpl	%ebx, %eax
+    2138: 0f 85 b2 02 00 00            	jne	0x23f0 <powl+0x6b0>
+    213e: db 2d ac e6 ff ff            	fldt	-0x1954(%rip)           # 0x7f0 <ldexpl+0x7f0>
+    2144: e9 ad 02 00 00               	jmp	0x23f6 <powl+0x6b6>
+    2149: db 6d c8                     	fldt	-0x38(%rbp)
+    214c: db 3c 24                     	fstpt	(%rsp)
+    214f: 48 8d bd 60 ff ff ff         	leaq	-0xa0(%rbp), %rdi
+    2156: e8 85 07 00 00               	callq	0x28e0 <frexpl@plt>
+    215b: db 2d 7f e5 ff ff            	fldt	-0x1a81(%rip)           # 0x6e0 <ldexpl+0x6e0>
+    2161: 31 c0                        	xorl	%eax, %eax
+    2163: df e9                        	fucompi	%st(1), %st
+    2165: 0f 93 c0                     	setae	%al
+    2168: c1 e0 04                     	shll	$0x4, %eax
+    216b: 8d 48 01                     	leal	0x1(%rax), %ecx
+    216e: 83 c8 09                     	orl	$0x9, %eax
+    2171: 89 c2                        	movl	%eax, %edx
+    2173: c1 e2 04                     	shll	$0x4, %edx
+    2176: 4c 8d 25 13 e7 ff ff         	leaq	-0x18ed(%rip), %r12     # 0x890 <A>
+    217d: 42 db 2c 22                  	fldt	(%rdx,%r12)
+    2181: df e9                        	fucompi	%st(1), %st
+    2183: 0f 42 c1                     	cmovbl	%ecx, %eax
+    2186: 44 8b ad 60 ff ff ff         	movl	-0xa0(%rbp), %r13d
+    218d: 8d 48 04                     	leal	0x4(%rax), %ecx
+    2190: 89 ca                        	movl	%ecx, %edx
+    2192: c1 e2 04                     	shll	$0x4, %edx
+    2195: 42 db 2c 22                  	fldt	(%rdx,%r12)
+    2199: df e9                        	fucompi	%st(1), %st
+    219b: 0f 42 c8                     	cmovbl	%eax, %ecx
+    219e: 8d 41 02                     	leal	0x2(%rcx), %eax
+    21a1: 48 89 c2                     	movq	%rax, %rdx
+    21a4: 48 c1 e2 04                  	shlq	$0x4, %rdx
+    21a8: 42 db 2c 22                  	fldt	(%rdx,%r12)
+    21ac: df e9                        	fucompi	%st(1), %st
+    21ae: 0f 43 c8                     	cmovael	%eax, %ecx
+    21b1: db 2d 79 e5 ff ff            	fldt	-0x1a87(%rip)           # 0x730 <ldexpl+0x730>
+    21b7: d9 c9                        	fxch	%st(1)
+    21b9: db e9                        	fucomi	%st(1), %st
+    21bb: dd d9                        	fstp	%st(1)
+    21bd: 41 be ff ff ff ff            	movl	$0xffffffff, %r14d      # imm = 0xFFFFFFFF
+    21c3: 44 0f 42 f1                  	cmovbl	%ecx, %r14d
+    21c7: 41 8d 46 01                  	leal	0x1(%r14), %eax
+    21cb: 48 89 c1                     	movq	%rax, %rcx
+    21ce: 48 c1 e1 04                  	shlq	$0x4, %rcx
+    21d2: 42 db 2c 21                  	fldt	(%rcx,%r12)
+    21d6: dc e9                        	fsubr	%st, %st(1)
+    21d8: d1 e8                        	shrl	%eax
+    21da: 48 c1 e0 04                  	shlq	$0x4, %rax
+    21de: 48 8d 0d bb e8 ff ff         	leaq	-0x1745(%rip), %rcx     # 0xaa0 <B>
+    21e5: db 2c 08                     	fldt	(%rax,%rcx)
+    21e8: de ea                        	fsubrp	%st, %st(2)
+    21ea: de f9                        	fdivrp	%st, %st(1)
+    21ec: d9 c0                        	fld	%st(0)
+    21ee: db 7d c8                     	fstpt	-0x38(%rbp)
+    21f1: dc c8                        	fmul	%st, %st(0)
+    21f3: db 7d bc                     	fstpt	-0x44(%rbp)
+    21f6: 48 8d 3d a3 18 00 00         	leaq	0x18a3(%rip), %rdi      # 0x3aa0 <ldexpl+0x3aa0>
+    21fd: e8 ee 06 00 00               	callq	0x28f0 <__tls_get_addr@plt>
+    2202: 48 89 85 58 ff ff ff         	movq	%rax, -0xa8(%rbp)
+    2209: 48 89 c3                     	movq	%rax, %rbx
+    220c: db 6d bc                     	fldt	-0x44(%rbp)
+    220f: db b8 10 00 00 00            	fstpt	0x10(%rax)
+    2215: db a8 10 00 00 00            	fldt	0x10(%rax)
+    221b: db 2d ef e4 ff ff            	fldt	-0x1b11(%rip)           # 0x710 <ldexpl+0x710>
+    2221: db 6d c8                     	fldt	-0x38(%rbp)
+    2224: dc c9                        	fmul	%st, %st(1)
+    2226: db 2d 44 e4 ff ff            	fldt	-0x1bbc(%rip)           # 0x670 <ldexpl+0x670>
+    222c: de c2                        	faddp	%st, %st(2)
+    222e: dc c9                        	fmul	%st, %st(1)
+    2230: db 2d 9a e4 ff ff            	fldt	-0x1b66(%rip)           # 0x6d0 <ldexpl+0x6d0>
+    2236: de c2                        	faddp	%st, %st(2)
+    2238: dc c9                        	fmul	%st, %st(1)
+    223a: db 2d 40 e5 ff ff            	fldt	-0x1ac0(%rip)           # 0x780 <ldexpl+0x780>
+    2240: de c2                        	faddp	%st, %st(2)
+    2242: d9 ca                        	fxch	%st(2)
+    2244: de c9                        	fmulp	%st, %st(1)
+    2246: db 2d 74 e5 ff ff            	fldt	-0x1a8c(%rip)           # 0x7c0 <ldexpl+0x7c0>
+    224c: d8 c2                        	fadd	%st(2), %st
+    224e: d8 ca                        	fmul	%st(2), %st
+    2250: db 2d ca e4 ff ff            	fldt	-0x1b36(%rip)           # 0x720 <ldexpl+0x720>
+    2256: de c1                        	faddp	%st, %st(1)
+    2258: d8 ca                        	fmul	%st(2), %st
+    225a: db 2d f0 e3 ff ff            	fldt	-0x1c10(%rip)           # 0x650 <ldexpl+0x650>
+    2260: de c1                        	faddp	%st, %st(1)
+    2262: de f9                        	fdivrp	%st, %st(1)
+    2264: de c9                        	fmulp	%st, %st(1)
+    2266: db 7d bc                     	fstpt	-0x44(%rbp)
+    2269: db a8 10 00 00 00            	fldt	0x10(%rax)
+    226f: db 3c 24                     	fstpt	(%rsp)
+    2272: bf ff ff ff ff               	movl	$0xffffffff, %edi       # imm = 0xFFFFFFFF
+    2277: e8 84 06 00 00               	callq	0x2900 <ldexpl@plt>
+    227c: db 6d bc                     	fldt	-0x44(%rbp)
+    227f: de e1                        	fsubp	%st, %st(1)
+    2281: db 2d 69 e4 ff ff            	fldt	-0x1b97(%rip)           # 0x6f0 <ldexpl+0x6f0>
+    2287: d9 c1                        	fld	%st(1)
+    2289: d8 c9                        	fmul	%st(1), %st
+    228b: db bb 10 00 00 00            	fstpt	0x10(%rbx)
+    2291: db ab 10 00 00 00            	fldt	0x10(%rbx)
+    2297: de c2                        	faddp	%st, %st(2)
+    2299: d9 c9                        	fxch	%st(1)
+    229b: db bb 10 00 00 00            	fstpt	0x10(%rbx)
+    22a1: db ab 10 00 00 00            	fldt	0x10(%rbx)
+    22a7: db 6d c8                     	fldt	-0x38(%rbp)
+    22aa: dc ca                        	fmul	%st, %st(2)
+    22ac: d9 ca                        	fxch	%st(2)
+    22ae: de c1                        	faddp	%st, %st(1)
+    22b0: db bb 10 00 00 00            	fstpt	0x10(%rbx)
+    22b6: db ab 10 00 00 00            	fldt	0x10(%rbx)
+    22bc: de c1                        	faddp	%st, %st(1)
+    22be: db bb 10 00 00 00            	fstpt	0x10(%rbx)
+    22c4: 41 f7 d6                     	notl	%r14d
+    22c7: 44 89 b5 74 ff ff ff         	movl	%r14d, -0x8c(%rbp)
+    22ce: db 85 74 ff ff ff            	fildl	-0x8c(%rbp)
+    22d4: db 3c 24                     	fstpt	(%rsp)
+    22d7: bf fb ff ff ff               	movl	$0xfffffffb, %edi       # imm = 0xFFFFFFFB
+    22dc: e8 1f 06 00 00               	callq	0x2900 <ldexpl@plt>
+    22e1: 44 89 ad 78 ff ff ff         	movl	%r13d, -0x88(%rbp)
+    22e8: da 85 78 ff ff ff            	fiaddl	-0x88(%rbp)
+    22ee: db 7d c8                     	fstpt	-0x38(%rbp)
+    22f1: db 6d b0                     	fldt	-0x50(%rbp)
+    22f4: db 3c 24                     	fstpt	(%rsp)
+    22f7: e8 d4 04 00 00               	callq	0x27d0 <reducl>
+    22fc: d9 c0                        	fld	%st(0)
+    22fe: db 7d bc                     	fstpt	-0x44(%rbp)
+    2301: db 6d b0                     	fldt	-0x50(%rbp)
+    2304: dc e1                        	fsub	%st, %st(1)
+    2306: db ab 10 00 00 00            	fldt	0x10(%rbx)
+    230c: db 6d c8                     	fldt	-0x38(%rbp)
+    230f: de cb                        	fmulp	%st, %st(3)
+    2311: de c9                        	fmulp	%st, %st(1)
+    2313: de c1                        	faddp	%st, %st(1)
+    2315: d9 c0                        	fld	%st(0)
+    2317: db 7d 94                     	fstpt	-0x6c(%rbp)
+    231a: db 3c 24                     	fstpt	(%rsp)
+    231d: e8 ae 04 00 00               	callq	0x27d0 <reducl>
+    2322: db 6d 94                     	fldt	-0x6c(%rbp)
+    2325: d8 e1                        	fsub	%st(1), %st
+    2327: db 7d 94                     	fstpt	-0x6c(%rbp)
+    232a: db 6d c8                     	fldt	-0x38(%rbp)
+    232d: db 6d bc                     	fldt	-0x44(%rbp)
+    2330: de c9                        	fmulp	%st, %st(1)
+    2332: de c1                        	faddp	%st, %st(1)
+    2334: d9 c0                        	fld	%st(0)
+    2336: db 7d bc                     	fstpt	-0x44(%rbp)
+    2339: db 3c 24                     	fstpt	(%rsp)
+    233c: e8 8f 04 00 00               	callq	0x27d0 <reducl>
+    2341: d9 c0                        	fld	%st(0)
+    2343: db 7d c8                     	fstpt	-0x38(%rbp)
+    2346: db 6d bc                     	fldt	-0x44(%rbp)
+    2349: de e1                        	fsubp	%st, %st(1)
+    234b: db 6d 94                     	fldt	-0x6c(%rbp)
+    234e: de c1                        	faddp	%st, %st(1)
+    2350: d9 c0                        	fld	%st(0)
+    2352: db 7d bc                     	fstpt	-0x44(%rbp)
+    2355: db 3c 24                     	fstpt	(%rsp)
+    2358: e8 73 04 00 00               	callq	0x27d0 <reducl>
+    235d: d9 c0                        	fld	%st(0)
+    235f: db 7d 94                     	fstpt	-0x6c(%rbp)
+    2362: db 6d c8                     	fldt	-0x38(%rbp)
+    2365: de c1                        	faddp	%st, %st(1)
+    2367: db 3c 24                     	fstpt	(%rsp)
+    236a: bf 05 00 00 00               	movl	$0x5, %edi
+    236f: e8 8c 05 00 00               	callq	0x2900 <ldexpl@plt>
+    2374: d9 05 be e4 ff ff            	flds	-0x1b42(%rip)           # 0x838 <ldexpl+0x838>
+    237a: d9 c9                        	fxch	%st(1)
+    237c: db e9                        	fucomi	%st(1), %st
+    237e: dd d9                        	fstp	%st(1)
+    2380: 0f 86 b4 00 00 00            	jbe	0x243a <powl+0x6fa>
+    2386: dd d8                        	fstp	%st(0)
+    2388: 45 84 ff                     	testb	%r15b, %r15b
+    238b: db 2d 0f e3 ff ff            	fldt	-0x1cf1(%rip)           # 0x6a0 <ldexpl+0x6a0>
+    2391: db 2d 19 e3 ff ff            	fldt	-0x1ce7(%rip)           # 0x6b0 <ldexpl+0x6b0>
+    2397: d9 c0                        	fld	%st(0)
+    2399: db ca                        	fcmovne	%st(2), %st
+    239b: dd da                        	fstp	%st(2)
+    239d: d9 ee                        	fldz
+    239f: db 6d a4                     	fldt	-0x5c(%rbp)
+    23a2: d9 c9                        	fxch	%st(1)
+    23a4: df e9                        	fucompi	%st(1), %st
+    23a6: dd d8                        	fstp	%st(0)
+    23a8: d9 c0                        	fld	%st(0)
+    23aa: db 7d 80                     	fstpt	-0x80(%rbp)
+    23ad: e9 c4 00 00 00               	jmp	0x2476 <powl+0x736>
+    23b2: d9 c9                        	fxch	%st(1)
+    23b4: df e9                        	fucompi	%st(1), %st
+    23b6: d9 ee                        	fldz
+    23b8: d9 ee                        	fldz
+    23ba: d9 c9                        	fxch	%st(1)
+    23bc: d9 ca                        	fxch	%st(2)
+    23be: d9 c9                        	fxch	%st(1)
+    23c0: 0f 86 1c fa ff ff            	jbe	0x1de2 <powl+0xa2>
+    23c6: dd d9                        	fstp	%st(1)
+    23c8: dd d9                        	fstp	%st(1)
+    23ca: dd d8                        	fstp	%st(0)
+    23cc: db 3c 24                     	fstpt	(%rsp)
+    23cf: e8 ec 04 00 00               	callq	0x28c0 <__signbitl@plt>
+    23d4: 85 c0                        	testl	%eax, %eax
+    23d6: d9 ee                        	fldz
+    23d8: d9 c0                        	fld	%st(0)
+    23da: d9 e0                        	fchs
+    23dc: d9 c1                        	fld	%st(1)
+    23de: db c9                        	fcmovne	%st(1), %st
+    23e0: dd d9                        	fstp	%st(1)
+    23e2: 45 84 ff                     	testb	%r15b, %r15b
+    23e5: d9 c9                        	fxch	%st(1)
+    23e7: db c9                        	fcmovne	%st(1), %st
+    23e9: dd d9                        	fstp	%st(1)
+    23eb: e9 ac f9 ff ff               	jmp	0x1d9c <powl+0x5c>
+    23f0: db 2d 8a e2 ff ff            	fldt	-0x1d76(%rip)           # 0x680 <ldexpl+0x680>
+    23f6: d9 c0                        	fld	%st(0)
+    23f8: db bd 60 ff ff ff            	fstpt	-0xa0(%rbp)
+    23fe: db 7d 80                     	fstpt	-0x80(%rbp)
+    2401: db 6d a4                     	fldt	-0x5c(%rbp)
+    2404: d9 ee                        	fldz
+    2406: df e9                        	fucompi	%st(1), %st
+    2408: dd d8                        	fstp	%st(0)
+    240a: 0f 92 c0                     	setb	%al
+    240d: 41 80 f7 01                  	xorb	$0x1, %r15b
+    2411: 41 08 c7                     	orb	%al, %r15b
+    2414: 75 0e                        	jne	0x2424 <powl+0x6e4>
+    2416: db ad 60 ff ff ff            	fldt	-0xa0(%rbp)
+    241c: d9 e0                        	fchs
+    241e: db bd 60 ff ff ff            	fstpt	-0xa0(%rbp)
+    2424: db 6d 80                     	fldt	-0x80(%rbp)
+    2427: db ad 60 ff ff ff            	fldt	-0xa0(%rbp)
+    242d: de c9                        	fmulp	%st, %st(1)
+    242f: db 7d 80                     	fstpt	-0x80(%rbp)
+    2432: db 6d 80                     	fldt	-0x80(%rbp)
+    2435: e9 62 f9 ff ff               	jmp	0x1d9c <powl+0x5c>
+    243a: d9 05 0c e4 ff ff            	flds	-0x1bf4(%rip)           # 0x84c <ldexpl+0x84c>
+    2440: df e9                        	fucompi	%st(1), %st
+    2442: 76 40                        	jbe	0x2484 <powl+0x744>
+    2444: dd d8                        	fstp	%st(0)
+    2446: 48 8b 85 58 ff ff ff         	movq	-0xa8(%rbp), %rax
+    244d: db a8 00 00 00 00            	fldt	(%rax)
+    2453: db 7d 80                     	fstpt	-0x80(%rbp)
+    2456: db a8 00 00 00 00            	fldt	(%rax)
+    245c: d9 c0                        	fld	%st(0)
+    245e: d9 e0                        	fchs
+    2460: 45 84 ff                     	testb	%r15b, %r15b
+    2463: d9 c1                        	fld	%st(1)
+    2465: db c9                        	fcmovne	%st(1), %st
+    2467: dd d9                        	fstp	%st(1)
+    2469: d9 ee                        	fldz
+    246b: db 6d a4                     	fldt	-0x5c(%rbp)
+    246e: d9 c9                        	fxch	%st(1)
+    2470: df e9                        	fucompi	%st(1), %st
+    2472: dd d8                        	fstp	%st(0)
+    2474: d9 c9                        	fxch	%st(1)
+    2476: db c1                        	fcmovnb	%st(1), %st
+    2478: dd d9                        	fstp	%st(1)
+    247a: db 6d 80                     	fldt	-0x80(%rbp)
+    247d: de c9                        	fmulp	%st, %st(1)
+    247f: e9 18 f9 ff ff               	jmp	0x1d9c <powl+0x5c>
+    2484: db 6d bc                     	fldt	-0x44(%rbp)
+    2487: db 6d 94                     	fldt	-0x6c(%rbp)
+    248a: de e9                        	fsubrp	%st, %st(1)
+    248c: d9 ee                        	fldz
+    248e: d9 c0                        	fld	%st(0)
+    2490: db 7d c8                     	fstpt	-0x38(%rbp)
+    2493: 31 c0                        	xorl	%eax, %eax
+    2495: d9 c9                        	fxch	%st(1)
+    2497: db e9                        	fucomi	%st(1), %st
+    2499: dd d9                        	fstp	%st(1)
+    249b: 0f 97 c0                     	seta	%al
+    249e: d9 c0                        	fld	%st(0)
+    24a0: d8 05 8e e3 ff ff            	fadds	-0x1c72(%rip)           # 0x834 <ldexpl+0x834>
+    24a6: d9 c9                        	fxch	%st(1)
+    24a8: db d1                        	fcmovnbe	%st(1), %st
+    24aa: dd d9                        	fstp	%st(1)
+    24ac: db 2d de e2 ff ff            	fldt	-0x1d22(%rip)           # 0x790 <ldexpl+0x790>
+    24b2: d8 c9                        	fmul	%st(1), %st
+    24b4: db 2d 16 e3 ff ff            	fldt	-0x1cea(%rip)           # 0x7d0 <ldexpl+0x7d0>
+    24ba: de c1                        	faddp	%st, %st(1)
+    24bc: d8 c9                        	fmul	%st(1), %st
+    24be: db 2d 7c e2 ff ff            	fldt	-0x1d84(%rip)           # 0x740 <ldexpl+0x740>
+    24c4: de c1                        	faddp	%st, %st(1)
+    24c6: d8 c9                        	fmul	%st(1), %st
+    24c8: db 2d 32 e3 ff ff            	fldt	-0x1cce(%rip)           # 0x800 <ldexpl+0x800>
+    24ce: de c1                        	faddp	%st, %st(1)
+    24d0: d8 c9                        	fmul	%st(1), %st
+    24d2: db 2d c8 e2 ff ff            	fldt	-0x1d38(%rip)           # 0x7a0 <ldexpl+0x7a0>
+    24d8: de c1                        	faddp	%st, %st(1)
+    24da: d8 c9                        	fmul	%st(1), %st
+    24dc: db 2d fe e2 ff ff            	fldt	-0x1d02(%rip)           # 0x7e0 <ldexpl+0x7e0>
+    24e2: de c1                        	faddp	%st, %st(1)
+    24e4: d8 c9                        	fmul	%st(1), %st
+    24e6: db 2d 84 e2 ff ff            	fldt	-0x1d7c(%rip)           # 0x770 <ldexpl+0x770>
+    24ec: de c1                        	faddp	%st, %st(1)
+    24ee: d9 7d d6                     	fnstcw	-0x2a(%rbp)
+    24f1: 0f b7 4d d6                  	movzwl	-0x2a(%rbp), %ecx
+    24f5: 81 c9 00 0c 00 00            	orl	$0xc00, %ecx            # imm = 0xC00
+    24fb: 66 89 4d a2                  	movw	%cx, -0x5e(%rbp)
+    24ff: d9 6d a2                     	fldcw	-0x5e(%rbp)
+    2502: d9 ca                        	fxch	%st(2)
+    2504: df bd 50 ff ff ff            	fistpll	-0xb0(%rbp)
+    250a: d9 6d d6                     	fldcw	-0x2a(%rbp)
+    250d: 48 8d 9b 10 00 00 00         	leaq	0x10(%rbx), %rbx
+    2514: 48 8b 8d 50 ff ff ff         	movq	-0xb0(%rbp), %rcx
+    251b: 31 d2                        	xorl	%edx, %edx
+    251d: 48 8d 3c 01                  	leaq	(%rcx,%rax), %rdi
+    2521: 48 83 c7 1f                  	addq	$0x1f, %rdi
+    2525: 48 01 c1                     	addq	%rax, %rcx
+    2528: de c9                        	fmulp	%st, %st(1)
+    252a: db 3b                        	fstpt	(%rbx)
+    252c: 48 0f 49 f9                  	cmovnsq	%rcx, %rdi
+    2530: 0f 99 c2                     	setns	%dl
+    2533: 48 c1 ef 05                  	shrq	$0x5, %rdi
+    2537: 01 d7                        	addl	%edx, %edi
+    2539: 89 f8                        	movl	%edi, %eax
+    253b: c1 e0 05                     	shll	$0x5, %eax
+    253e: 48 98                        	cltq
+    2540: 48 29 c8                     	subq	%rcx, %rax
+    2543: 48 c1 e0 04                  	shlq	$0x4, %rax
+    2547: 42 db 2c 20                  	fldt	(%rax,%r12)
+    254b: db 2b                        	fldt	(%rbx)
+    254d: d8 c9                        	fmul	%st(1), %st
+    254f: db 3b                        	fstpt	(%rbx)
+    2551: db 2b                        	fldt	(%rbx)
+    2553: de c1                        	faddp	%st, %st(1)
+    2555: db 3b                        	fstpt	(%rbx)
+    2557: db 2b                        	fldt	(%rbx)
+    2559: db 3c 24                     	fstpt	(%rsp)
+    255c: e8 9f 03 00 00               	callq	0x2900 <ldexpl@plt>
+    2561: db 6d a4                     	fldt	-0x5c(%rbp)
+    2564: db 6d c8                     	fldt	-0x38(%rbp)
+    2567: df e9                        	fucompi	%st(1), %st
+    2569: dd d8                        	fstp	%st(0)
+    256b: db 3b                        	fstpt	(%rbx)
+    256d: 72 38                        	jb	0x25a7 <powl+0x867>
+    256f: db 6d b0                     	fldt	-0x50(%rbp)
+    2572: db 3c 24                     	fstpt	(%rsp)
+    2575: bf ff ff ff ff               	movl	$0xffffffff, %edi       # imm = 0xFFFFFFFF
+    257a: e8 81 03 00 00               	callq	0x2900 <ldexpl@plt>
+    257f: db 3c 24                     	fstpt	(%rsp)
+    2582: e8 29 03 00 00               	callq	0x28b0 <floorl@plt>
+    2587: db 3c 24                     	fstpt	(%rsp)
+    258a: bf 01 00 00 00               	movl	$0x1, %edi
+    258f: e8 6c 03 00 00               	callq	0x2900 <ldexpl@plt>
+    2594: db 6d b0                     	fldt	-0x50(%rbp)
+    2597: d9 c9                        	fxch	%st(1)
+    2599: df e9                        	fucompi	%st(1), %st
+    259b: dd d8                        	fstp	%st(0)
+    259d: 75 02                        	jne	0x25a1 <powl+0x861>
+    259f: 7b 06                        	jnp	0x25a7 <powl+0x867>
+    25a1: db 2b                        	fldt	(%rbx)
+    25a3: d9 e0                        	fchs
+    25a5: db 3b                        	fstpt	(%rbx)
+    25a7: db 2b                        	fldt	(%rbx)
+    25a9: e9 ee f7 ff ff               	jmp	0x1d9c <powl+0x5c>
+    25ae: de c1                        	faddp	%st, %st(1)
+    25b0: e9 e7 f7 ff ff               	jmp	0x1d9c <powl+0x5c>
+    25b5: d9 ee                        	fldz
+    25b7: de c2                        	faddp	%st, %st(2)
+    25b9: de c1                        	faddp	%st, %st(1)
+    25bb: e9 dc f7 ff ff               	jmp	0x1d9c <powl+0x5c>

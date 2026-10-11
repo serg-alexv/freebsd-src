@@ -1,0 +1,123 @@
+diff --git a/lib/msun/ld80/e_powl.c b/lib/msun/ld80/e_powl.c
+index d04d77a5ee9898..4a1467957415e3 100644
+--- a/lib/msun/ld80/e_powl.c
++++ b/lib/msun/ld80/e_powl.c
+@@ -363,7 +363,6 @@ if( x <= 0.0L )
+ 
+ if( iyflg )
+ 	{
+-	i = w;
+ 	w = floorl(x);
+ 	if( (w == x) && (fabsl(y) < 32768.0) )
+ 		{
+@@ -376,6 +375,33 @@ if( iyflg )
+ if( nflg )
+ 	x = fabsl(x);
+ 
++/*
++ * Pure integer bounds classification to avoid fenv pollution.
++ * If |y| >= 2^15 and |log2(x)| >= 1, the product definitively
++ * exceeds ld80 MEXP/MNEXP limits without requiring FP multiplication.
++ * Prevents NaN generation from intermediate calculations and UB on
++ * conversion (bug 292988).
++ */
++{
++	int ex = ilogbl(x);
++	int ey = ilogbl(y);
++
++	if (ey >= 15 && (ex <= -2 || ex >= 1)) {
++		int q_sign = signbit(y) ^ (ex < 0);
++		volatile long double v, s;
++
++		if (q_sign)
++			v = s = 0x1p-10000L; /* Guaranteed underflow */
++		else
++			v = s = 0x1p9000L;  /* Guaranteed overflow */
++
++		if (nflg && yoddint)
++			s = -s;
++		v = v * s;
++		return (v);
++	}
++}
++
+ /* separate significand from exponent */
+ x = frexpl( x, &i );
+ e = i;
+diff --git a/lib/msun/tests/exponential_test.c b/lib/msun/tests/exponential_test.c
+index c3dcca869dcb4d..28defa8f7921db 100644
+--- a/lib/msun/tests/exponential_test.c
++++ b/lib/msun/tests/exponential_test.c
+@@ -156,6 +156,64 @@ ATF_TC_BODY(exp2l, tc)
+ 	}
+ }
+ 
++ATF_TC_WITHOUT_HEAD(powl_extreme);
++ATF_TC_BODY(powl_extreme, tc)
++{
++#if LDBL_MANT_DIG == 64
++	const int rmodes[] = { FE_TONEAREST, FE_UPWARD, FE_DOWNWARD,
++	    FE_TOWARDZERO };
++	long double actual, expected;
++	int i, j;
++
++	struct {
++		long double x, y;
++		long double exp_nearest, exp_upward, exp_downward, exp_towardzero;
++		int excepts;
++	} tests[] = {
++		{ 0x1.98p-3072L, 0xa.ab43b6dba9a6383p+16364L,
++		  0.0L, 0x1p-16445L, 0.0L, 0.0L,
++		  FE_UNDERFLOW | FE_INEXACT },
++		{ 2.0L, 0x1p15L,
++		  INFINITY, INFINITY, LDBL_MAX, LDBL_MAX,
++		  FE_OVERFLOW | FE_INEXACT },
++		{ -2.0L, 0x1p15L + 1.0L,
++		  -INFINITY, -LDBL_MAX, -INFINITY, -LDBL_MAX,
++		  FE_OVERFLOW | FE_INEXACT },
++		{ -2.0L, -(0x1p15L + 1.0L),
++		  -0.0L, -0.0L, -0x1p-16445L, -0.0L,
++		  FE_UNDERFLOW | FE_INEXACT },
++		{ -2.0L, 0x1p15L,
++		  INFINITY, INFINITY, LDBL_MAX, LDBL_MAX,
++		  FE_OVERFLOW | FE_INEXACT },
++		{ 0.5L, 0x1p15L,
++		  0.0L, 0x1p-16445L, 0.0L, 0.0L,
++		  FE_UNDERFLOW | FE_INEXACT },
++	};
++
++	for (i = 0; i < (int)(sizeof(tests) / sizeof(tests[0])); i++) {
++		for (j = 0; j < (int)(sizeof(rmodes) / sizeof(rmodes[0])); j++) {
++			ATF_REQUIRE_EQ(0, fesetround(rmodes[j]));
++			ATF_REQUIRE_EQ(0, feclearexcept(FE_ALL_EXCEPT));
++			actual = powl(tests[i].x, tests[i].y);
++
++			switch (rmodes[j]) {
++			case FE_TONEAREST: expected = tests[i].exp_nearest; break;
++			case FE_UPWARD: expected = tests[i].exp_upward; break;
++			case FE_DOWNWARD: expected = tests[i].exp_downward; break;
++			case FE_TOWARDZERO: expected = tests[i].exp_towardzero; break;
++			}
++
++			CHECK_FPEQUAL(actual, expected);
++			ATF_CHECK_EQ_MSG(signbit(actual) != 0, signbit(expected) != 0,
++			    "signbit mismatch for x=%La y=%La mode=%d",
++			    tests[i].x, tests[i].y, rmodes[j]);
++			CHECK_FP_EXCEPTIONS(tests[i].excepts, ALL_STD_EXCEPT);
++		}
++	}
++	fesetround(FE_TONEAREST);
++#endif
++}
++
+ ATF_TC_WITHOUT_HEAD(generic);
+ ATF_TC_BODY(generic, tc)
+ {
+@@ -183,6 +241,7 @@ ATF_TP_ADD_TCS(tp)
+ 	ATF_TP_ADD_TC(tp, exp2);
+ 	ATF_TP_ADD_TC(tp, exp2f);
+ 	ATF_TP_ADD_TC(tp, exp2l);
++	ATF_TP_ADD_TC(tp, powl_extreme);
+ 
+ 	return (atf_no_error());
+ }
